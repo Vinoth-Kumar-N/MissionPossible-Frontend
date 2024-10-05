@@ -6,7 +6,7 @@ const Home = () => {
    return (
       <>
          <div className='w-screen h-screen z-0 mt-[-1%]'>
-            <div className='max-w-full h-[70%] bg-[url("../assets/img/imagebg.jpg")] bg-cover bg-no-repeat flex flex-col items-center font-bold'>
+            <div className='w-[100%] h-[70vh] bg-[url("../assets/img/imagebg.jpg")] bg-cover bg-no-repeat  flex flex-col items-center font-bold'>
                <div className='text-3xl mt-[5%]'> Tamil Nadu's Best</div>
                <div className='text-3xl'>Travel Itinerary Planner</div>
                <div className='flex space-x-1 mt-[5%]'>
