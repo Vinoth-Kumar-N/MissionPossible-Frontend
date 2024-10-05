@@ -9,7 +9,7 @@ export const Card = () => {
   };
 
   return (
-    <div className='w-[300px] h-[350px] border rounded-lg overflow-hidden flex-shrink-0'>
+    <div className='w-[300px] h-[350px] border rounded-lg overflow-hidden flex-shrink-0 bg-[#f8f8f8]'>
       <div className='relative'>
         <img 
           src="https://wallpapertag.com/wallpaper/full/d/3/c/968676-hi-res-background-images-2651x1813-retina.jpg" 
