@@ -43,9 +43,9 @@ const Navbar = () => {
   const [visible, setVisible] = useState(false);
   return (
     <>
-    <div className='w-screen h-auto z-0 bg-[#657cba] flex  text-white justify-between rounded-lg'>
+    <div className='w-screen h-auto z-25 bg-[#657cba] flex text-black justify-between rounded-b-lg sticky top-0 '>
         <div className='flex m-3'>
-            <p>Trip Planner</p>
+            <p className='font-bold'>Trip Planner</p>
         </div>
         <div className='flex m-3 space-x-3'>
             <ul className='flex space-x-3'>
@@ -60,9 +60,9 @@ const Navbar = () => {
     </div>
     {
       visible && (
-      <div className="h-screen w-screen absolute top-0 left-0 bg-black/20 flex justify-center items-center">
-        <div className="h-[65%] w-[40%] p-[5%] rounded-2xl bg-red z-50 flex flex-col  bg-white  shadow-lg">
-            <div className='px-[3%] flex justify-between items-center mb-4'>
+      <div className="h-screen w-screen fixed top-0 left-0 bg-black/20 flex justify-center items-center z-50">
+        <div className="h-[65%] w-[40%] px-[3%] py-[2%] rounded-2xl bg-red flex flex-col bg-white shadow-lg">
+            <div className='px-[3%] flex justify-between items-center mb-2 top-0'>
               <h2 className="text-2xl font-semibold text-[#657cba]">Contact Us</h2>
                 <CircleX className='text-red-500 cursor-pointer' onClick={() => setVisible(false)} />
             </div>
@@ -148,7 +148,7 @@ const Navbar = () => {
                         <option value='Corporate'>Corporate</option>
                     </select>
                 </div>
-                <div className="flex justify-center">
+                <div className="flex justify-center p-[6%]">
                     <button
                         className="px-5 py-2 bg-neutral-700 text-white rounded-3xl hover:neutral-700 transition duration-300"
                         type="submit">Submit & Enquiry now

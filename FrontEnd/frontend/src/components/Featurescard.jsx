@@ -1,7 +1,7 @@
 import React from 'react';
 import { User2 } from 'lucide-react';
 
-export const Featurescard = () => {
+const Featurescard = () => {
   return (
     <div className='w-[300px] h-[500px]  rounded-xl bg-[#f8f8f8] text-black'>
       <div className='relative'>

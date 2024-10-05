@@ -1,6 +1,6 @@
 import React from 'react'
 import errorImg from '../assets/img/errorImg.gif'
-export const Error = () => {
+const Error = () => {
   return (
     <>
       <div className='w-screen h-screen flex justify-center items-center bg-f5f5f5 bg-white'>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Heart, Star } from 'lucide-react';
 
-export const Card = () => {
+const Card = () => {
   const [isLiked, setIsLiked] = useState(false);
 
   const handleHeartClick = () => {
