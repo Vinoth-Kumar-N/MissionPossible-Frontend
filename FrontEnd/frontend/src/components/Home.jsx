@@ -1,5 +1,7 @@
 import React from 'react'
 import {Star} from 'lucide-react'
+import {Cards} from './Cards'
+import {ArrowRight} from 'lucide-react'
 export const Home = () => {
   return (
     <>
@@ -11,6 +13,12 @@ export const Home = () => {
                 <div className='flex space-x-1'><Star color='orange' /><Star color='orange'/><Star color='orange'/><Star color='orange'/><Star color='orange'/></div>
                 <div className='font-bold'>4.5 + Ratings</div>
              </div>
+          </div>
+          <Cards/>
+          <div className='w-screen flex justify-center'>
+          <div className=' bg-slate-400 flex w-[150px] flex justify-center rounded-lg h-8'>
+          <button className='text-black'>View More</button><ArrowRight className='text-black'/>
+          </div>
           </div>
        </div>
     </>
