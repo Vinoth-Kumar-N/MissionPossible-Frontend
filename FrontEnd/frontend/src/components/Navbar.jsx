@@ -62,9 +62,9 @@ const Navbar = () => {
       visible && (
       <div className="h-screen w-screen absolute top-0 left-0 bg-black/20 flex justify-center items-center">
         <div className="h-[65%] w-[40%] p-[5%] rounded-2xl bg-red z-50 flex flex-col  bg-white  shadow-lg">
-            <div className='flex justify-between mx-[3%]'>
-              <h2 className="text-2xl font-semibold text-neutral-700 mb-4 ">Contact Us</h2>
-                <CircleX className='text-red-500 items-center cursor-pointer' onClick={() => setVisible(false)} />
+            <div className='px-[3%] flex justify-between items-center mb-4'>
+              <h2 className="text-2xl font-semibold text-[#657cba]">Contact Us</h2>
+                <CircleX className='text-red-500 cursor-pointer' onClick={() => setVisible(false)} />
             </div>
             <form onSubmit={handleSubmit}>
                 <p className='text-red-500 mb-4'>*All fields are mandatory</p>
