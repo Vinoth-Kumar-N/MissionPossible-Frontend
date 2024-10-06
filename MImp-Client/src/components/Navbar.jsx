@@ -48,7 +48,7 @@ const Navbar = () => {
   return (
     <>
       <div className='w-screen h-[4rem] z-25 text-lg text-white bg-blue-500 shadow-md flex justify-between items-center rounded-b-lg sticky top-0'>
-        <div className='flex ml-10 items-center'>
+        <div className='flex ml-10 items-center'> 
           <Link to={'/'} className='hover:bg-blue-400 hover:border-b-4 p-3 rounded-md'><p className='font-bold'>Trip Planner</p></Link>
         </div>
         <div className='flex'>
@@ -63,8 +63,8 @@ const Navbar = () => {
         </div>
       </div>
       {visible && (
-        <div className='h-screen w-screen fixed top-0 left-0 bg-black/20 flex justify-center items-center z-50'>
-          <div className='h-[65%] w-[40%] px-[3%] py-[2%] rounded-2xl bg-red flex flex-col bg-white shadow-lg'>
+        <div className='h-screen w-screen fixed top-6 left-0 flex justify-center items-center z-50'>
+          <div className='h-[80%] w-[40%] px-[3%] py-[2%] rounded-2xl bg-red flex flex-col bg-white shadow-lg'>
             <div className='px-[3%] flex justify-between items-center mb-2 top-0'>
               <h2 className='text-2xl font-semibold text-[#657cba]'>Contact Us</h2>
               <CircleX
