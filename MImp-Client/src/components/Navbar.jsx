@@ -47,21 +47,19 @@ const Navbar = () => {
 
   return (
     <>
-      <div className='w-screen h-auto z-25 bg-[#657cba] flex text-black justify-between rounded-b-lg sticky top-0'>
-        <div className='flex m-3'>
+      <div className='w-screen h-[4rem] z-25 text-lg text-white bg-blue-500 shadow-md flex justify-between items-center rounded-b-lg sticky top-0'>
+        <div className='flex ml-10 items-center'>
           <p className='font-bold'>Trip Planner</p>
         </div>
-        <div className='flex m-3 space-x-3'>
-          <ul className='flex space-x-3'>
-          <button className='hover:border-b-4 border-white text-white rounded-md'> <Link to={'/register'}>For booking</Link></button>
-            <button> <Link to={'/aboutus'}>About us</Link></button>
-            <button>
-              <li onClick={() => setVisible(true)}>Contact</li>
-            </button>
-          </ul>
-          <div className='w-8 h-8 rounded-full bg-orange-500 justify-center items-center flex'>
+        <div className='flex'>
+          <ul className='flex gap-8 mr-10'>
+          <li className='hover:border-b-4 border-white rounded-md'> <Link to={'/register'}>For Booking</Link></li>
+            <li className='hover:border-b-4 border-white rounded-md'> <Link to={'/aboutus'} >About us</Link></li>
+              <li className='hover:border-b-4 border-white rounded-md' onClick={() => setVisible(true)}>Contact</li>
+          <button className='hover:border-b-4 border-white rounded-md'>
             <User2 className='rounded-full' />
-          </div>
+          </button>
+          </ul>
         </div>
       </div>
       {visible && (
