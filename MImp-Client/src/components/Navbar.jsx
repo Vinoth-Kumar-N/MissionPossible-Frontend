@@ -77,95 +77,93 @@ const Navbar = () => {
               />
             </div>
             <form onSubmit={handleSubmit}>
-              <p className='text-red-500 mb-4'>*All fields are mandatory</p>
-              <div className='mb-4'>
-                <input
-                  className='w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300'
-                  placeholder='Enter your name *'
-                  type='text'
-                  name='name'
-                  ref={nameRef}
-                  required
-                />
-              </div>
-              <div className='mb-4'>
-                <input
-                  className='w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300'
-                  placeholder='Enter your Phone Number *'
-                  name='phone'
-                  id='phone'
-                  type='tel'
-                  ref={phoneRef}
-                  required
-                />
-              </div>
-              <div className='mb-4'>
-                <input
-                  className='w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300'
-                  placeholder='Enter your Email ID *'
-                  name='email'
-                  id='email'
-                  type='email'
-                  ref={emailRef}
-                  required
-                />
-              </div>
-              <div className='mb-4'>
-                <input
-                  className='w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300'
-                  placeholder='Travel Destination *'
-                  name='place'
-                  id='place'
-                  type='text'
-                  ref={placeRef}
-                  required
-                />
-              </div>
-              <div className='mb-4'>
-                <input
-                  className='w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300'
-                  placeholder='Travel Date'
-                  type='date'
-                  name='date'
-                  id='date'
-                  ref={dateref}
-                />
-              </div>
-              <div className='mb-4'>
-                <input
-                  className='w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300'
-                  placeholder='Number of People *'
-                  type='number'
-                  name='people'
-                  id='people'
-                  ref={people}
-                  required
-                />
-              </div>
-              <div className='mb-4'>
-                <select
-                  className='w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300'
-                  name='vacation'
-                  id='vacation'
-                  ref={vacation}
-                  required
-                >
-                  <option value=''>Select Vacation Type *</option>
-                  <option value='Family'>Family</option>
-                  <option value='Friends'>Friends</option>
-                  <option value='Solo'>Solo</option>
-                  <option value='Honeymoon'>Honeymoon</option>
-                  <option value='Corporate'>Corporate</option>
-                </select>
-              </div>
-              <div className='flex justify-center p-[6%]'>
-                <button
-                  className='px-5 py-2 bg-neutral-700 text-white rounded-3xl hover:bg-neutral-600 transition duration-300'
-                  type='submit'
-                >
-                  Submit & Enquiry now
-                </button>
-              </div>
+                <p className='text-red-500 mb-4'>*All fields are mandatory</p>
+                <div className="mb-4">
+                    <input
+                        className="w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300"
+                        placeholder="Enter your name *"
+                        type="text"
+                        name="name"
+                        ref={nameRef}
+                        required
+                    />
+                </div>
+                <div className="mb-4">
+                    <input
+                        className="w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300"
+                        placeholder="Enter your Phone Number *"
+                        name="phone"
+                        id="phone"
+                        type="tel"
+                        ref={phoneRef}
+                        required
+                    />
+                </div>
+                <div className="mb-4">
+                    <input
+                        className="w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300"
+                        placeholder="Enter your Email ID *"
+                        name="email"
+                        id="email"
+                        type="email"
+                        ref={emailRef}
+                        required
+                    />
+                </div>
+                <div className='mb-4'>
+                    <input
+                        className='w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300'
+                        placeholder='Travel Destination *'
+                        name='place'
+                        id='place'
+                        type='text'
+                        ref={placeRef}
+                        required
+                    />
+                </div>
+                <div className="mb-4">
+                    <input
+                        className='w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300'
+                        placeholder='Travel Date'
+                        type='date'
+                        name='date'
+                        id='date'
+                        ref={dateref}
+                    />
+                </div>
+                <div className="mb-4">
+                    <input
+                        className="w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300"
+                        placeholder="Number of People *"
+                        type="number"
+                        name="people"
+                        id="people"
+                        ref={people}
+                        required
+                    />
+                </div>
+                <div className="mb-4">
+                    <select
+                        className='w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300'
+                        name='vacation'
+                        id='vacation'
+                        ref={vacation}
+                        required
+                    >
+                        <option value=''>Select Vacation Type *</option>
+                        <option value='Family'>Family</option>
+                        <option value='Friends'>Friends</option>
+                        <option value='Solo'>Solo</option>
+                        <option value='Honeymoon'>Honeymoon</option>
+                        <option value='Corporate'>Corporate</option>
+                    </select>
+                </div>
+                <div className="flex justify-center p-[6%]">
+                    <button
+                        className="px-5 py-2 bg-neutral-700 text-white rounded-3xl hover:neutral-700 transition duration-300"
+                        type="submit">Submit & Enquiry now
+                    </button>
+                </div>
             </form>
           </div>
         </div>
