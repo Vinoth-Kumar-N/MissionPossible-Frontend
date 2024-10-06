@@ -40,11 +40,11 @@ const Register = () => {
       setstatusMess("Phone Number must contain Numbers with limit 10");
       return;
     }
-    if (!passwordRegex.test(phoneref.current.value)) {
-      toast.error("Enter Valid Pasword");
-      setstatusMess("Password must contain at least one digit, one lowercase, and one uppercase letter, and must be between 6 and 20 characters");
-      return;
-    }
+    // if (!passwordRegex.test(phoneref.current.value)) {
+    //   toast.error("Enter Valid Pasword");
+    //   setstatusMess("Password must contain at least one digit, one lowercase, and one uppercase letter, and must be between 6 and 20 characters");
+    //   return;
+    // }
     if (passwordref.current.value !== repasswordref.current.value) {
       toast.error("Invalid Credentials");
       setstatusMess("Passwords do not match");
