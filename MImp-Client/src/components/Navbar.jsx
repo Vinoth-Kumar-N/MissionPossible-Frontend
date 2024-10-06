@@ -49,7 +49,7 @@ const Navbar = () => {
     <>
       <div className='w-screen h-[4rem] z-25 text-lg text-white bg-blue-500 shadow-md flex justify-between items-center rounded-b-lg sticky top-0'>
         <div className='flex ml-10 items-center'>
-          <p className='font-bold'>Trip Planner</p>
+          <Link to={'/'} className='hover:bg-blue-400 hover:border-b-4 p-3 rounded-md'><p className='font-bold'>Trip Planner</p></Link>
         </div>
         <div className='flex'>
           <ul className='flex gap-8 mr-10'>

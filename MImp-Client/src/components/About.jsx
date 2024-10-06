@@ -17,7 +17,7 @@ const About = () => {
       image: 'https://via.placeholder.com/150', // Placeholder for Vinoth's photo
     },
     {
-      name: 'Jagadheesh D',
+      name: 'Jagadheesh B',
       description: 'Jagadheesh is a well-rounded full-stack developer who works on both the client-side and server-side of the application. His versatility allows him to contribute to all parts of the project, from design to deployment. His goal is to ensure that the platform is scalable and efficient for a growing user base.',
       image: 'https://via.placeholder.com/150', // Placeholder for Jagadheesh's photo
     },
