@@ -5,8 +5,8 @@ import Card from './Card'
 const Cards = () => {
   return (
     <>
-      <div className='w-screen h-auto border overflow-x-auto flex space-x-4 p-4 bg-slate-200'>
-        <div className='flex space-x-4'>
+      <div className='w-screen h-auto border flex p-4 bg-slate-200'>
+        <div className='h-full w-full flex content-between gap-4 flex-wrap'>
           <Featurescard/>
           <Featurescard/>
           <Featurescard/>
