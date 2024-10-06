@@ -1,6 +1,7 @@
 import React from 'react'
 import { LucideStarHalf, Star } from 'lucide-react'
 import Cards from './Cards'
+import Map from './Map'
 import { ArrowRight } from 'lucide-react'
 import InfoPage from './InfoPage';
 const Home = () => {
@@ -15,7 +16,9 @@ const Home = () => {
                   <div className='font-bold'>4.5 + Ratings</div>
                </div>
             </div>
-            <InfoPage name={'tirupur'} />
+            <InfoPage name={'tirupur'}/>
+            <Cards/>
+            <Map/>
             <div className='w-screen flex justify-center'>
                <div className=' bg-slate-400 flex w-[150px] flex justify-center rounded-lg h-8'>
                   <button className='text-black'>View More</button><ArrowRight className='text-black' />

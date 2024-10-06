@@ -16,11 +16,9 @@ export const InfoPage = (props) => {
             console.error('Error fetching weather data:', error);
         }
     };
-
     useEffect(() => {
         FetchData();
     }, []);
-
     return (
         <div className="flex justify-center items-center w-screen h-screen bg-gray-100 backdrop-blur-md">
             <div className="bg-white rounded-lg shadow-lg p-6 max-w-xs w-full">

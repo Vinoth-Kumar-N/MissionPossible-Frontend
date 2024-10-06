@@ -12,7 +12,6 @@ const Featurescard = () => {
             alt="background" 
           />
         </div>
-
         <div className='w-full h-full flex flex-col p-4'>
           <div className='mb-4'>
             <p className='text-2xl font-semibold'>Consequat</p>
@@ -21,7 +20,6 @@ const Featurescard = () => {
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente alias distinctio et vel quas quibusdam exercitationem commodi, aliquam rep.
             </p>
           </div>
-
           <div className='mt-auto bg-black rounded-b-xl'>
             <div className='h-full w-full flex items-center p-3 space-x-3'>
               <User2 color='orange' size={35} className='rounded-full border border-black' />
@@ -33,5 +31,4 @@ const Featurescard = () => {
     </div>
   );
 };
-
 export default Featurescard;
