@@ -49,9 +49,9 @@ const Navbar = () => {
         </div>
         <div className='flex m-3 space-x-3'>
             <ul className='flex space-x-3'>
-                <li className='hover:underline'>For booking</li>
-                <li className='hover:underline'>About us</li>
-                <li className='hover:underline' onClick={() => setVisible(true)} >Contact</li>
+               <button><li className=''>For booking</li></button> 
+                <button><li className=''>About us</li></button>
+               <button><li className='' onClick={() => setVisible(true)} >Contact</li></button> 
             </ul>
             <div className='w-8 h-8 rounded-full bg-orange-500 justify-center items-center flex'>
             <User2 className='rounded-full  '/>
