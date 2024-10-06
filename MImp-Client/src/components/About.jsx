@@ -3,7 +3,7 @@ const About = () => {
   const teamMembers = [
     {
       name: 'Abishek S',
-      description: 'Abishek is a highly motivated front-end developer with a keen interest in crafting user-friendly and responsive designs. He focuses on ensuring that the website\'s interface is both functional and visually appealing. With a passion for UI/UX, he plays a crucial role in creating the best user experience for our travel itinerary planner.',
+      description: 'Abishek is a highly motivated Full-Stack developer with a keen interest in crafting user-friendly and responsive designs. He focuses on ensuring that the website\'s interface is both functional and visually appealing. With a passion for UI/UX, he plays a crucial role in creating the best user experience for our travel itinerary planner.',
       image: 'https://via.placeholder.com/150', // Placeholder for Abishek's photo
     },
     {
@@ -24,8 +24,8 @@ const About = () => {
   ];
 
   return (
-    <div class="bg-gray-100 min-h-screen flex items-center justify-center">
-      <div className="bg-gray-100 min-h-screen flex flex-col items-center justify-center p-6">
+    <div class="bg-slate-200 min-h-screen flex items-center justify-center">
+      <div className="bg-slate-200 min-h-screen flex flex-col items-center justify-center p-6">
       <h1 className="text-4xl font-bold text-center mb-12">About Us</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 w-full max-w-6xl">
