@@ -71,7 +71,7 @@ const Navbar = () => {
                 <div className="mb-4">
                     <input
                         className="w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300"
-                        placeholder="Enter your name *"
+                        placeholder="Name *"
                         type="text"
                         name="name"
                         ref={nameRef}
@@ -81,7 +81,7 @@ const Navbar = () => {
                 <div className="mb-4">
                     <input
                         className="w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300"
-                        placeholder="Enter your Phone Number *"
+                        placeholder="Phone Number *"
                         name="phone"
                         id="phone"
                         type="tel"
@@ -92,7 +92,7 @@ const Navbar = () => {
                 <div className="mb-4">
                     <input
                         className="w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300"
-                        placeholder="Enter your Email ID *"
+                        placeholder="Email ID *"
                         name="email"
                         id="email"
                         type="email"
