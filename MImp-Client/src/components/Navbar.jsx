@@ -53,9 +53,7 @@ const Navbar = () => {
         </div>
         <div className='flex m-3 space-x-3'>
           <ul className='flex space-x-3'>
-            <button>
-              <li>For booking</li>
-            </button>
+          <button> <Link to={'/register'}>For booking</Link></button>
             <button> <Link to={'/aboutus'}>About us</Link></button>
             <button>
               <li onClick={() => setVisible(true)}>Contact</li>
