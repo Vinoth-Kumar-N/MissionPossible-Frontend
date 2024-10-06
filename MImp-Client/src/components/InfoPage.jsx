@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-export const InfoPage = (props) => {
+const InfoPage = (props) => {
     const [data, setData] = useState(null);
 
     const FetchData = async () => {

@@ -47,26 +47,24 @@ const Navbar = () => {
 
   return (
     <>
-      <div className='w-screen h-auto z-25 bg-[#657cba] flex text-black justify-between rounded-b-lg sticky top-0'>
-        <div className='flex m-3'>
-          <p className='font-bold'>Trip Planner</p>
+      <div className='w-screen h-[4rem] z-25 text-lg text-white bg-blue-500 shadow-md flex justify-between items-center rounded-b-lg sticky top-0'>
+        <div className='flex ml-10 items-center'> 
+          <Link to={'/'} className='hover:bg-blue-400 hover:border-b-4 p-3 rounded-md'><p className='font-bold'>Trip Planner</p></Link>
         </div>
-        <div className='flex m-3 space-x-3'>
-          <ul className='flex space-x-3'>
-          <button> <Link to={'/register'}>For booking</Link></button>
-            <button> <Link to={'/aboutus'}>About us</Link></button>
-            <button>
-              <li onClick={() => setVisible(true)}>Contact</li>
-            </button>
-          </ul>
-          <div className='w-8 h-8 rounded-full bg-orange-500 justify-center items-center flex'>
+        <div className='flex'>
+          <ul className='flex gap-8 mr-10'>
+          <li className='hover:border-b-4 border-white rounded-md'> <Link to={'/register'}>For Booking</Link></li>
+            <li className='hover:border-b-4 border-white rounded-md'> <Link to={'/aboutus'} >About us</Link></li>
+              <li className='hover:border-b-4 border-white rounded-md' onClick={() => setVisible(true)}>Contact</li>
+          <button className='hover:border-b-4 border-white rounded-md'>
             <User2 className='rounded-full' />
-          </div>
+          </button>
+          </ul>
         </div>
       </div>
       {visible && (
-        <div className='h-screen w-screen fixed top-0 left-0 bg-black/20 flex justify-center items-center z-50'>
-          <div className='h-[65%] w-[40%] px-[3%] py-[2%] rounded-2xl bg-red flex flex-col bg-white shadow-lg'>
+        <div className='h-screen w-screen fixed top-6 left-0 flex justify-center items-center z-50'>
+          <div className='h-[80%] w-[40%] px-[3%] py-[2%] rounded-2xl bg-red flex flex-col bg-white shadow-lg'>
             <div className='px-[3%] flex justify-between items-center mb-2 top-0'>
               <h2 className='text-2xl font-semibold text-[#657cba]'>Contact Us</h2>
               <CircleX
