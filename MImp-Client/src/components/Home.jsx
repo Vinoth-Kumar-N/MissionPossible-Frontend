@@ -16,7 +16,7 @@ const Home = () => {
                   <div className='font-bold'>4.5 + Ratings</div>
                </div>
             </div>
-            <InfoPage name={'tirupur'}/>
+            <InfoPage name={'erode'}/>
             <Cards/>
             <Map/>
             <div className='w-screen h-screen flex flex-wrap justify-center'>
