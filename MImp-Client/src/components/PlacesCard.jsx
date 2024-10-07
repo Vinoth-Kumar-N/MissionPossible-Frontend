@@ -20,7 +20,7 @@ const PlacesCard = () => {
       <ul>
         {placeslist.map((item, index) => (
           <li key={index}>
-            <div className='w-[30%] shadow-md flex flex-wrap rounded-2xl'>
+            <div className='w-[30%] shadow-md flex rounded-2xl'>
               <img className='w-[100%] h-[50%] rounded-2xl' src={item.img} alt='project'/>
               <div className='w-[100%] flex flex-col items-center justify-center'>
                 <h1 className='text-2xl font-bold'>{item.placename}</h1>

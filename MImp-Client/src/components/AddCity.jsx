@@ -1,7 +1,42 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { CircleX } from 'lucide-react';
 import {Link} from 'react-router-dom'
+import axios from 'axios';
 const AddCity = () => {
+  const url='https://6703ae46ab8a8f89273132cf.mockapi.io/AddCity';
+  const coverimgRef=useRef(null);
+  const ratingsRef=useRef(null);
+  const cityimageRef=useRef(null);
+  const citynameRef=useRef(null);
+  const priceRef=useRef(null);
+  const descriptionRef=useRef(null);
+
+  const handleclick=(e)=>{
+    e.preventDefault();
+    const obj={
+      coverimg:coverimgRef.current.value,
+      ratings:ratingsRef.current.value,
+      price:priceRef.current.value,
+      cityimg:cityimageRef.current.value,
+      description:descriptionRef.current.value
+    }
+    if(obj)
+    {
+       console.log(obj);
+       SendData(obj);
+    }
+  }
+  const SendData=async(obj)=>{
+     const res=await axios.post(url,obj);
+     if(res.status===201)
+     {
+      alert("Data sent successfully");
+     }
+     else
+     {
+      alert("Failed to sent data!");
+     }
+  }
   return (
     <>
     <div className="h-[90vh] w-screen flex justify-center absolute items-center z-50">
@@ -12,11 +47,13 @@ const AddCity = () => {
 
       <form className="flex flex-col justify-center w-[80%] h-[80%] rounded-2xl items-center gap-4">
         <h1 className="text-blue-600 text-2xl font-medium">City Details</h1>
-        <input type="text" className="p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Image URL" required />
-        <input type="number" className="p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Rating" required />
-        <input type="text" className="p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="City Name" required />
-        <input type="text" className="p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Price" required />
-        <button type="submit" className="h-12 bg-blue-500 rounded-md w-full text-white p-2 font-serif hover:bg-blue-600">Add</button>
+        <input ref={coverimgRef} type="text" className="p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Cover Image Url" required />
+        <input ref={ratingsRef} type="number" className="p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Rating" required />
+        <input ref={citynameRef} type="text" className="p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="City Name" required />
+        <input ref={priceRef} type="text" className="p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Price" required />
+        <input ref={cityimageRef} type="text" className="p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="City Image Url" required />
+        <input ref={descriptionRef} type="text" className="p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Description" required />
+        <button type="submit"onClick={handleclick} className="h-12 bg-blue-500 rounded-md w-full text-white p-2 font-serif hover:bg-blue-600">Add</button>
     </form>
     </div>
   </div>
