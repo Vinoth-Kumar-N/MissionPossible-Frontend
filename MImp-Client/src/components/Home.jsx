@@ -5,6 +5,7 @@ import Map from './Map'
 import {Link} from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import InfoPage from './InfoPage';
+import Currency from './Currency'
 const Home = () => {
    return (
       <>

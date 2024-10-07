@@ -64,7 +64,7 @@ const Navbar = () => {
       </div>
       {visible && (
         <div className='h-screen w-screen fixed top-6 left-0 flex justify-center items-center z-50'>
-          <div className='h-[60%] w-[40%] px-[3%] py-[2%] rounded-2xl bg-red flex flex-col bg-white shadow-lg'>
+          <div className='w-[40%] px-[3%] py-[2%] rounded-2xl bg-red flex flex-col bg-white shadow-lg'>
             <div className='px-[3%] flex justify-between items-center mb-2 top-0'>
               <h2 className='text-2xl font-semibold text-[#657cba]'>Contact Us</h2>
               <CircleX

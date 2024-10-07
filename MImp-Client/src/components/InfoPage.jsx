@@ -20,7 +20,7 @@ const InfoPage = (props) => {
         FetchData();
     }, []);
     return (
-        <div className="flex justify-center items-center w-screen h-screen bg-gray-100 backdrop-blur-md">
+        // <div className="flex justify-center items-center w-auto h-auto bg-gray-100 backdrop-blur-md">
             <div className="bg-white rounded-lg shadow-lg p-6 max-w-xs w-full">
                 {data ? (
                     <>
@@ -35,7 +35,7 @@ const InfoPage = (props) => {
                     <p className="text-center">Loading...</p>
                 )}
             </div>
-        </div>
+        // </div>
     );
 };
 

@@ -9,7 +9,10 @@ import About from './components/About';
 import AddFeature from './components/AddFeature';
 import AddCity from './components/AddCity';
 import Home1 from './components/Home1'
+
 import Trip from './components/Trip'
+
+import City from './components/City';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 const App = () => {
   return (
@@ -25,7 +28,8 @@ const App = () => {
         <Route path='/admin' element={<Admin />} />
         <Route path='/addfeature' element={<AddFeature />} />
         <Route path='/addcity' element={<AddCity />} />
-        <Route path='*' element={<Error />} />
+        <Route path='/city' element={<City />} />
+        <Route path='*' element={<Error />}/>
       </Routes>
     </BrowserRouter>
   );
