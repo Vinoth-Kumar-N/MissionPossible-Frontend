@@ -57,9 +57,9 @@ const Login = () => {
             <CircleX onClick={() => navigate('/')} />
           </div>
           <form onSubmit={handleLogin} className="flex flex-col justify-center w-[80%] h-[80%] rounded-md items-center gap-4">
-            <h1 className="text-blue-600 font-serif text-2xl font-medium">Login Form</h1>
-            <input type="email" ref={emailref} className="font-serif p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Email" />
-            <input type="password" ref={passwordref} className="font-serif p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="password" />
+            <h1 className="text-blue-600 text-2xl font-medium">Login Form</h1>
+            <input type="email" ref={emailref} className="p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Email" />
+            <input type="password" ref={passwordref} className="p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="password" />
             <button type="submit" className="h-12 bg-blue-500 rounded-md w-full text-white p-2 font-serif hover:bg-blue-600" >Login</button>
             <button type="submit" className="h-12 bg-slate-50 rounded-full w-[80%] p-2 font-serif flex justify-center gap-4 items-center" ><img src={Google} /> Continue with Google</button>
           </form>

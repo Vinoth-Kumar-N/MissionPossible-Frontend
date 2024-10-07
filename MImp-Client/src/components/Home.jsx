@@ -13,7 +13,7 @@ const Home = () => {
                <div className='text-3xl text-blue-700'>Travel Itinerary Planner</div>
                <div className='flex space-x-1 mt-[5%]'>
                   <div className='flex space-x-1'><Star color='orange' fill='orange' /><Star color='orange' fill='orange' /><Star color='orange' fill='orange' /><Star color='orange' fill='orange' /><LucideStarHalf color='orange' fill='orange' /></div>
-                  <div className='font-bold'>4.5 + Ratings</div>
+                  <div className='font-bold text-blue-700'>4.5 + Ratings</div>
                </div>
             </div>
             <InfoPage name={'erode'}/>

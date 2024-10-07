@@ -6,6 +6,7 @@ import Error from './components/Error';
 import Register from './components/Register';
 import Home from './components/Home';
 import About from './components/About';
+import AddFeature from './components/AddFeature';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/admin' element={<Admin />} />
+        <Route path='/addfeature' element={<AddFeature />} />
         <Route path='*' element={<Error />} />
       </Routes>
     </BrowserRouter>

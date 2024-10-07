@@ -82,8 +82,8 @@ const Register = () => {
           <form onSubmit={handleReg} className="flex flex-col justify-center w-[80%] h-[80%] rounded-2xl items-center gap-4">
             <h1 className="text-blue-600 font-serif text-2xl font-medium">Register Form</h1>
             <input type="text" ref={nameref} className="font-serif p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Name" required />
-            <input type="email" ref={emailref} className="font-serif p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Email" required />
-            <input type="tel" ref={phoneref} className="font-serif p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Phone" required />
+            <input type="email" ref={emailref} className="p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Email" required />
+            <input type="number" ref={phoneref} className="p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Phone" required />
             <input type="password" ref={passwordref} className="font-serif p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Password" required />
             <input type="password" ref={repasswordref} className="font-serif p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Re-enter Password" required />
             <button type="submit" className="h-12 bg-blue-500 rounded-md w-full text-white p-2 font-serif hover:bg-blue-600">Register</button>
