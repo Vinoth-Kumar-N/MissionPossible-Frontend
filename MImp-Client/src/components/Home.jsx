@@ -4,6 +4,7 @@ import Cards from './Cards'
 import Map from './Map'
 import { ArrowRight } from 'lucide-react'
 import InfoPage from './InfoPage';
+import Currency from './Currency'
 const Home = () => {
    return (
       <>
