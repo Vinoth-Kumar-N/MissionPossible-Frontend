@@ -8,7 +8,8 @@ const Home = () => {
    return (
       <>
          <div className='w-screen h-screen z-0 mt-[-1%]'>
-            <div className='w-[100%] h-[92vh] bg-[url("../assets/img/home.png")] bg-cover bg-no-repeat  flex flex-col items-center font-bold'>
+            <div className='w-[100%] h-[92vh] bg-[url("../assets/img/home.png")] bg-cover bg-no-repeat'>
+             <div className='w-[100%] h-[92vh] flex flex-col items-center font-bold backdrop-blur-sm'>
                <div className='text-3xl mt-[5%] text-blue-700'> Tamil Nadu's Best</div>
                <div className='text-3xl text-blue-700'>Travel Itinerary Planner</div>
                <div className='flex space-x-1 mt-[5%]'>
@@ -23,6 +24,7 @@ const Home = () => {
                   <div className="mt-4">
                      <button className="w-[7rem] h-[3rem] bg-black text-white rounded-md"><a href="/createtrip" className="">Get Started</a></button>
                   </div>
+               </div>
             </div>
             <InfoPage name={'erode'} />
             <Cards />
