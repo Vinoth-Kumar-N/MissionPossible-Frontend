@@ -5,7 +5,7 @@ import Map from './Map'
 import {Link} from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import InfoPage from './InfoPage';
-import Currency from './Currency'
+import Footer from './Footer'
 const Home = () => {
    return (
       <>
@@ -36,6 +36,7 @@ const Home = () => {
                   <Link to={'/trip'}><button className='text-black'>View More</button><ArrowRight className='text-black' /></Link>
                </div>
             </div>
+            <Footer />
          </div>
       </>
    )
