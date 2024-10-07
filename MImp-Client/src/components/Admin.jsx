@@ -5,6 +5,8 @@ const Admin = () => {
   return (
     <>
 {/* Feature */}
+<div className="container w-full h-[90vh] flex justify-center items-center">
+  <div className="Link flex ">
 <Link to={'/addfeature'}>
     <span class="box">
         Feature
@@ -16,6 +18,8 @@ const Admin = () => {
         City Add
     </span>
 </Link>
+</div>
+</div>
 </>
   )
 }

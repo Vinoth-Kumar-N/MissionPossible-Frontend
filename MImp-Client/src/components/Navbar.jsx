@@ -47,7 +47,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className='w-screen h-[4rem] z-25 text-lg text-white bg-blue-500 shadow-md flex justify-between items-center rounded-b-lg sticky top-0'>
+      <div className='w-screen h-[4rem] z-100 text-lg text-white bg-blue-500 shadow-md flex justify-between items-center rounded-b-lg sticky top-0'>
         <div className='flex ml-10 items-center'> 
           <Link to={'/'} className='p-3 rounded-md'><p className='font-bold'>Trip Planner</p></Link>
         </div>
