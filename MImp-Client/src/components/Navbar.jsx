@@ -49,14 +49,14 @@ const Navbar = () => {
     <>
       <div className='w-screen h-[4rem] z-25 text-lg text-white bg-blue-500 shadow-md flex justify-between items-center rounded-b-lg sticky top-0'>
         <div className='flex ml-10 items-center'> 
-          <Link to={'/'} className='hover:bg-blue-400 hover:border-b-4 p-3 rounded-md'><p className='font-bold'>Trip Planner</p></Link>
+          <Link to={'/'} className='p-3 rounded-md'><p className='font-bold'>Trip Planner</p></Link>
         </div>
         <div className='flex'>
           <ul className='flex gap-8 mr-10'>
-          <li className='hover:border-b-4 border-white rounded-md'> <Link to={'/register'}>For Booking</Link></li>
-            <li className='hover:border-b-4 border-white rounded-md'> <Link to={'/aboutus'} >About us</Link></li>
-              <li className='hover:border-b-4 border-white rounded-md' onClick={() => setVisible(true)}>Contact</li>
-          <button className='hover:border-b-4 border-white rounded-md'>
+          <li className=' rounded-md'> <Link to={'/register'}>For Booking</Link></li>
+            <li className=' rounded-md'> <Link to={'/aboutus'} >About us</Link></li>
+              <li className=' rounded-md' onClick={() => setVisible(true)}>Contact</li>
+          <button className='rounded-md'>
             <Link to={'./admin'}><User2 className='rounded-full' /></Link>
           </button>
           </ul>

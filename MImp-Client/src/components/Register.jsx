@@ -73,7 +73,7 @@ const Register = () => {
   return (
     <>
       <ToastContainer />
-      <div className="h-[90vh] w-screen flex justify-center absolute items-center z-50">
+      <div className="h-[90vh] w-screen flex justify-center absolute items-center z-10">
         <div className="h-100 w-[370px] pb-10 flex flex-col justify-center items-center rounded-[30px] shadow-md">
           <div className="w-full flex justify-end align-top">
             <CircleX onClick={() => navigate('/')} />
