@@ -36,6 +36,7 @@ const Home = () => {
                   <Link to={'/trip'}><button className='text-black'>View More</button><ArrowRight className='text-black' /></Link>
                </div>
             </div>
+            <Currency/>
          </div>
       </>
    )

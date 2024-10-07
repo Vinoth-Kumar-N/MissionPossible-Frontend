@@ -13,7 +13,6 @@ const EndOut = () => {
             console.error("Error fetching data: ", error);
         }
     };
-
     useEffect(() => {
         handleFetch();
     }, []);
