@@ -19,13 +19,14 @@
   transition: .5s linear;
   position: relative;
   display: block;
-  overflow: hidden;
+  overflow: hidden; 
   padding: 15px;
   text-align: center;
   margin: 0 5px;
-  background: transparent;
+  background: rgb(67, 125, 218);
   text-transform: uppercase;
   font-weight: 900;
+  color: aliceblue;
 }
 
 .box:before {
