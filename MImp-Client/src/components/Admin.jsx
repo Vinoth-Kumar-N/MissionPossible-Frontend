@@ -11,11 +11,11 @@ const Admin = () => {
     </span>
 </Link>
 {/* City Details */}
-<button>
+<Link to={'/addcity'}>
     <span class="box">
         City Add
     </span>
-</button>
+</Link>
 </>
   )
 }
