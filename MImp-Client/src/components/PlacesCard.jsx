@@ -14,14 +14,23 @@ const PlacesCard = () => {
   }, []);
   return (
     <>
-        <div className='w-[30%] h-[50%] shadow-md flex flex-col items-center'>
+    <ul>
+      {projectlist.map((item, index) => {
+            return (
+
+        <li className='w-[30%] h-[50%] shadow-md flex flex-col items-center'>
           <img className='w-[100%] h-[50%]' src={placeslist.image} alt='project'/>
           <div className='flex flex-col items-center'>
             <h1 className='text-2xl font-bold'>{placeslist.name}</h1>
             <p className='text-lg'>{placeslist.description}</p>
             <p className='text-lg'>{placeslist.location}</p>
           </div>
-        </div>
+        </li>
+            )
+      }
+    )
+}
+        </ul>
     </>
 
   )
