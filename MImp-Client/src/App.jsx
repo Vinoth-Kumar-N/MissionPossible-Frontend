@@ -9,6 +9,7 @@ import About from './components/About';
 import AddFeature from './components/AddFeature';
 import AddCity from './components/AddCity';
 import Home1 from './components/Home1'
+import Trip from './components/Trip'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/aboutus' element={<About />} />
+        <Route path='/trip' element={<Trip/>}></Route>
         <Route path='/home1' element={<Home1 />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
