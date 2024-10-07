@@ -17,24 +17,21 @@ const PlacesCard = () => {
 
   return (
     <>
-    <ul>
-      {projectlist.map((item, index) => {
-            return (
-
-        <li className='w-[30%] h-[50%] shadow-md flex flex-col items-center'>
-          <img className='w-[100%] h-[50%]' src={placeslist.image} alt='project'/>
-          <div className='flex flex-col items-center'>
-            <h1 className='text-2xl font-bold'>{placeslist.name}</h1>
-            <p className='text-lg'>{placeslist.description}</p>
-            <p className='text-lg'>{placeslist.location}</p>
-          </div>
-        </li>
-            )
-      }
-    )
-}
-        </ul>
+      <ul>
+        {placeslist.map((item, index) => (
+          <li key={index}>
+            <div className='w-[30%] shadow-md flex rounded-2xl'>
+              <img className='w-[100%] h-[50%] rounded-2xl' src={item.img} alt='project'/>
+              <div className='w-[100%] flex flex-col items-center justify-center'>
+                <h1 className='text-2xl font-bold'>{item.placename}</h1>
+                <p className='text-lg'>{item.Description}</p>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
     </>
   );
 }
-export default PlacesCard
+
+export default PlacesCard;
