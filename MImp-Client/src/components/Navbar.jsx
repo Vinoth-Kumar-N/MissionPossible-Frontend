@@ -57,7 +57,7 @@ const Navbar = () => {
             <li className='hover:border-b-4 border-white rounded-md'> <Link to={'/aboutus'} >About us</Link></li>
               <li className='hover:border-b-4 border-white rounded-md' onClick={() => setVisible(true)}>Contact</li>
           <button className='hover:border-b-4 border-white rounded-md'>
-            <User2 className='rounded-full' />
+            <Link to={'./admin'}><User2 className='rounded-full' /></Link>
           </button>
           </ul>
         </div>
