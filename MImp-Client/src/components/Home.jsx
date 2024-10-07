@@ -26,7 +26,7 @@ const Home = () => {
             </div>
             <InfoPage name={'erode'} />
             <Cards />
-            <Map />
+            <Map lat={13.082680} lng={80.270721}/>
             <div className='w-screen h-screen flex flex-wrap justify-center'>
                <div className=' bg-slate-400 flex w-[150px] justify-center rounded-lg h-8'>
                   <button className='text-black'>View More</button><ArrowRight className='text-black' />

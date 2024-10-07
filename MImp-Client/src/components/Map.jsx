@@ -5,16 +5,14 @@ const containerStyle = {
   width: '500px',
   height: '500px'
 };
-
-const center = {
-  lat: 11.016844,
-  lng: 76.955833
-};
-
-function Map() {
+function Map(props) {
+  const center = {
+    lat: props.lat,
+    lng: props.lng
+  };
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyALQwWRg-P69MvlubmRyIJQtmc1QkVCfdY"  // Your API key
+    googleMapsApiKey: "AIzaSyALQwWRg-P69MvlubmRyIJQtmc1QkVCfdY"
   });
 
   const [map, setMap] = React.useState(null);

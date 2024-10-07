@@ -8,6 +8,7 @@ import Home from './components/Home';
 import About from './components/About';
 import AddFeature from './components/AddFeature';
 import AddCity from './components/AddCity';
+import Home1 from './components/Home1'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/aboutus' element={<About />} />
+        <Route path='/home1' element={<Home1 />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/admin' element={<Admin />} />
