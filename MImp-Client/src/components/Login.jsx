@@ -36,7 +36,8 @@ const Login = () => {
       if (res.status === 200 && res.data.message === 'Login Successful') {
         toast.success('Login Successful');
         setTimeout(() => {
-          navigate('/cards');
+          navigate('/trip');
+          
         }, 2000);
 
       }
