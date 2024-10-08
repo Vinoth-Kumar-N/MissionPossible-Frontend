@@ -13,6 +13,9 @@ const City = () => {
         <CityDetails />
         <Map lat={13.08268} lng={80.270721} />
         <Hotels />
+        <div className="text-xl flex justify-center items-center rounded-md bg-lime-100 h-[50px]">
+          Places
+        </div>
         <PlacesCard />
         <div className="justify-center items-center flex">
           <button className="box">Purchase</button>
