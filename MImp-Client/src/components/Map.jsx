@@ -1,18 +1,18 @@
-import React from 'react';
-import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
+import React from "react";
+import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 
 const containerStyle = {
-  width: '500px',
-  height: '500px'
+  width: "500px",
+  height: "500px",
 };
 function Map(props) {
   const center = {
     lat: props.lat,
-    lng: props.lng
+    lng: props.lng,
   };
   const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyALQwWRg-P69MvlubmRyIJQtmc1QkVCfdY"
+    id: "google-map-script",
+    googleMapsApiKey: "AIzaSyALQwWRg-P69MvlubmRyIJQtmc1QkVCfdY",
   });
 
   const [map, setMap] = React.useState(null);
@@ -28,18 +28,20 @@ function Map(props) {
   }, []);
 
   return isLoaded ? (
-    <div className='flex justify-center items-centers rounded-lg bg-slate-200'>
+    <div className="flex justify-center items-centers rounded-lg bg-slate-200">
       <GoogleMap
-      mapContainerStyle={containerStyle}
-      center={center}
-      zoom={10}
-      onLoad={onLoad}
-      onUnmount={onUnmount}
-    >
-      <Marker position={center} />
-    </GoogleMap>
+        mapContainerStyle={containerStyle}
+        center={center}
+        zoom={10}
+        onLoad={onLoad}
+        onUnmount={onUnmount}
+      >
+        <Marker position={center} />
+      </GoogleMap>
     </div>
-  ) : <></>;
+  ) : (
+    <></>
+  );
 }
 
 export default React.memo(Map);
