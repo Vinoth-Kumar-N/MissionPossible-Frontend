@@ -1,7 +1,6 @@
-
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import EndOut from '../components/EndOut';
+import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 
 const SecTravList = [
     {
@@ -53,7 +52,8 @@ const SecBudgetOptions = [
         desc: 'Dont worry about cost'
     }
 ];
-const Trip = () => {
+const CreateTrip = () => {
+    const navi = useNavigate();
     const [place, setplace] = useState();
     const [FormData, setFormData] = useState([]);
 
@@ -66,19 +66,23 @@ const Trip = () => {
     }, [FormData]);
 
     const onGenerateTrip = () => {
-        if (FormData?.noOfDays > 5 && !FormData?.destination && !FormData?.noOfMembers && !FormData?.budget) {
-            alert('Please fill all the fields');
+        if (!FormData?.destination || !FormData?.noOfDays || !FormData?.noOfMembers || !FormData?.budget) {
+            toast('Please fill out all the required fields before generating the trip.');
+            return;
         }
+        navi('/endoutput')
         console.log(FormData);
     }
 
+
     return (
         <>
-            <div className=" h-auto md:h-full w-full flex flex-col items-center bg-slate-300">
+            <ToastContainer />
+            <div className=" h-auto md:h-full w-full flex flex-col items-center bg-slate-100">
 
-                <div className="w-full md:w-[60%] flex flex-col items-center justify-center">
+                <div className="w-full md:w-[60%] flex flex-col items-center justify-center my-10 rounded-xl bg-slate-50">
                     <div className="sm:px-10 md:px-22 lg:px-56 xl:px-10 px-5 mt-20">
-                        <h2 className="text-bold text-3xl">Tell us your travel preferences 🏝 🏂</h2>
+                        <h2 className="text-bold text-3xl">Tell us your travel preferences 🏝️ 🏂</h2>
                         <p className="mt-3 text-gray-500">just provide some basics informatiom, and our trip planner will generate customized itinerary based on your preferences</p>
                     </div>
 
@@ -100,35 +104,41 @@ const Trip = () => {
                         </div>
                     </div>
 
-                    <div className="w-full h-[17rem] flex flex-col items-start sm:px-10 md:px-22 lg:px-56 xl:px-10 px-5 mt-10 bg-slate-200">
+                    <div className="w-full lg:h-[17rem] flex flex-col items-start sm:px-10 md:px-22 lg:px-56 xl:px-10 px-5 mt-10 ">
                         <div className="h-full w-full">
                             <h1 className="text-xl my-3 font-medium">What is your Budget?</h1>
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-5">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mt-5">
                                 {
                                     SecBudgetOptions.map((data, index) => (
                                         <div key={index}
                                             onClick={() => handleInputData("budget", data.title)}
-                                            className='p-4 border rounded-lg hover:shadow-xl shadow-blue-400 m-6 bg-[#f8f8f8] cursor-pointer active:border border-blue-700'>
+                                            className={`p-4 border rounded-lg hover:shadow-xl shadow-blue-400 m-6 bg-[#f8f8f8] cursor-pointer 
+                                            ${FormData?.budget === data.title && 'border-2 border-black'}
+                                            `}>
                                             <h2 className="text-lg font-bold">{data.icon}</h2>
                                             <h2 className="text-lg font-bold">{data.title}</h2>
                                             <h2 className="text-sm text-gray-500">{data.desc}</h2>
                                         </div>
                                     ))
+
+
                                 }
                             </div>
                         </div>
                     </div>
 
-                    <div className="w-full h-auto md:h-[30rem] flex flex-col items-start sm:px-10 md:px-22 lg:px-56 xl:px-10 px-5  bg-slate-200">
+                    <div className="w-full h-auto md:h-[30rem] flex flex-col items-start sm:px-10 md:px-22 lg:px-56 xl:px-10 px-5 ">
                         <div className="h-full w-full">
                             <h1 className="text-xl my-3 font-medium">How many Members are plan to go</h1>
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-4">
                                 {
                                     SecTravList.map((data, index) => (
                                         <div key={index}
-                                            onClick={() => handleInputData("noOfMembers", data.people)}
-                                            className='p-4 border rounded-lg hover:shadow-xl shadow-blue-400 m-6 bg-[#f8f8f8] cursor-pointer active:border border-blue-700'>
-                                            <h2 className="text-lg font-bold">{data.icon}</h2>
+                                            onClick={() => handleInputData("Travelers", data.people)}
+                                            className={`p-4 hover:shadow-xl shadow-blue-400 m-6 bg-[#f8f8f8] cursor-pointer rounded-lg border
+                                            ${FormData?.Travelers === data.people && 'border-2 border-black'}
+                                            `}>
+                                            <h2 className='text-lg font-bold'>{data.icon}</h2>
                                             <h2 className="text-lg font-bold">{data.title}</h2>
                                             <h2 className="text-sm text-gray-500">{data.desc}</h2>
                                             <h2 className="text-sm text-gray-500">{data.people}</h2>
@@ -140,17 +150,14 @@ const Trip = () => {
                         </div>
                     </div>
                     <div className="w-full h-[8rem] flex flex-col items-center">
-                        <Link to={'/endoutput'}>
-                            {/* <EndOut props={FormData} /> */}
-                            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={onGenerateTrip}>Generate Trip</button>
-                        </Link>
+                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-4 rounded-xl" onClick={onGenerateTrip}>Generate Trip</button>
                     </div>
 
                 </div>
 
-            </div>
+            </div >
         </>
     )
 }
 
-export default Trip
+export default CreateTrip
