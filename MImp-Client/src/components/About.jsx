@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from './Footer';
 const About = () => {
   const teamMembers = [
     {
@@ -24,6 +25,7 @@ const About = () => {
   ];
 
   return (
+    <>
     <div class="bg-slate-200 min-h-screen flex items-center justify-center">
       <div className="bg-slate-200 min-h-screen flex flex-col items-center justify-center p-6">
       <h1 className="text-4xl font-bold text-center mb-12">About Us</h1>
@@ -64,7 +66,7 @@ const About = () => {
   </div>
     </div>
     </div>
-    
+    </>
   )
 }
 

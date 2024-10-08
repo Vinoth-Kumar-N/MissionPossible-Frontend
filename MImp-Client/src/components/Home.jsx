@@ -31,11 +31,12 @@ const Home = () => {
             <InfoPage name={'erode'} />
             <Cards />
             <Map lat={13.082680} lng={80.270721}/>
-            <div className='w-screen h-screen flex flex-wrap justify-center'>
-               <div className=' bg-slate-400 flex w-[150px] justify-center rounded-lg h-8'>
-                  <Link to={'/trip'}><button className='text-black'>View More</button><ArrowRight className='text-black' /></Link>
+            <div className='w-screen'>
+               <div className='flex justify-center items-center'>
+               <div className='flex'><Link to={'/trip'}><button className='text-black bg-blue-500 pl-5 pr-5 pt-3 pb-3 rounded-lg'>View More</button><ArrowRight className='text-black' /></Link></div>
                </div>
             </div>
+            <Footer />
          </div>
       </>
    )
