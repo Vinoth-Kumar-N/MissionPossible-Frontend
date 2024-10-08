@@ -1,11 +1,17 @@
 import React from "react";
 
-const HotelCard = () => {
+const HotelCard = ({ name, image, price }) => {
   return (
-    <div className="h-[300px] w-[300px] shadow-md rounded-md bg-slate-300 flex flex-col gap-2 p-3 justify-center">
-      <div className="h-[50%] w-full bg-slate-400 rounded-md">img</div>
-      <div className="h-[20%] w-full bg-slate-400 rounded-md">Hotel Name</div>
-      <div className="h-[20%] w-full bg-slate-400 rounded-md">Price</div>
+    <div className="h-[300px] w-[300px] shadow-md rounded-md flex flex-col gap-2 p-3 justify-center">
+      <div className="h-[50%] w-full rounded-md">
+        <img src={image} alt={name} className="h-full w-full rounded-md" />
+      </div>
+      <div className="h-[20%] w-fullrounded-md flex items-center justify-center">
+        {name}
+      </div>
+      <div className="h-[20%] w-full rounded-md flex items-center justify-center">
+        {price}
+      </div>
     </div>
   );
 };
