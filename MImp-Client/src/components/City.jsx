@@ -3,7 +3,7 @@ import CityDetails from "./CityDetails";
 import Hotels from "./Hotels";
 import Weather from "./Weather";
 import Map from "./Map";
-import Air from './Air'
+import Air from "./Air";
 import Currency from "./Currency";
 import PlacesCard from "./PlacesCard";
 const City = () => {
@@ -21,15 +21,12 @@ const City = () => {
         <div className="justify-center items-center flex">
           <button className="box">Purchase</button>
         </div>
-        <div className="w-screen">
-          <div className="flex justify-start items-start">
-            <Currency />
-            <Air/>
-          </div>
-        </div>
+        <Air />
+        <Currency />
       </div>
     </>
   );
 };
+2;
 
 export default City;

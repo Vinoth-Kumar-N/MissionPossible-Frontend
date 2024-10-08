@@ -50,17 +50,15 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <InfoPage name={"erode"} />
         <Cards />
-        <Map lat={13.08268} lng={80.270721} />
         <div className="w-screen">
           <div className="flex justify-center items-center">
             <div className="flex">
               <Link to={"/trip"}>
-                <button className="text-black bg-blue-500 pl-5 pr-5 pt-3 pb-3 rounded-lg">
+                <button className="text-white text-lg bg-blue-500 pl-5 pr-5 pt-3 pb-3 rounded-lg flex">
                   View More
+                  <ArrowRight className="pl-1 text-white text-lg" />
                 </button>
-                <ArrowRight className="text-black" />
               </Link>
             </div>
           </div>
@@ -70,4 +68,4 @@ const Home = () => {
     </>
   );
 };
-export default Home;  
+export default Home;
