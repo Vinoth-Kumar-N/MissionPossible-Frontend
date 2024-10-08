@@ -3,13 +3,24 @@ import HotelCard from './HotelCard';
 import axios from 'axios';
 
 const Hotels = () => {
-  const [hotels, setHotels] = useState([]);
-
-  useEffect(() => {
-    axios.get('https://67038440bd7c8c1ccd41bc90.mockapi.io/hotel')
-      .then(response => setHotels(response.data))
-      .catch(error => console.error('Error fetching hotels:', error));
-  }, []);
+  const hotels=[{
+    id:'1',
+    img:"hu",
+    name:"bhu",
+    price:"1243"
+  },{
+    id:'1',
+    img:"hu",
+    name:"bhu",
+    price:"1243"
+  },
+  {
+    id:'1',
+    img:"hu",
+    name:"bhu",
+    price:"1243"
+  }
+]
 
   return (
     <>

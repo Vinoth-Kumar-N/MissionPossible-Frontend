@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { CircleX } from 'lucide-react';
+import { CircleX, User } from 'lucide-react';
 import {Link} from 'react-router-dom'
 import axios from 'axios';
 const AddCity = () => {
@@ -10,7 +10,8 @@ const AddCity = () => {
   const citynameRef=useRef(null);
   const priceRef=useRef(null);
   const descriptionRef=useRef(null);
-
+  const latref=useRef(null);
+  const lonref=useRef(null);
   const handleclick=(e)=>{
     e.preventDefault();
     const obj={
@@ -18,7 +19,10 @@ const AddCity = () => {
       ratings:ratingsRef.current.value,
       price:priceRef.current.value,
       cityimg:cityimageRef.current.value,
-      description:descriptionRef.current.value
+      cityname:citynameRef.current.value,
+      description:descriptionRef.current.value,
+      lat:latref.current.value,
+      lon:lonref.current.value
     }
     if(obj)
     {
@@ -49,10 +53,12 @@ const AddCity = () => {
         <h1 className="text-blue-600 text-2xl font-medium">City Details</h1>
         <input ref={coverimgRef} type="text" className="p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Cover Image Url" required />
         <input ref={ratingsRef} type="number" className="p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Rating" required />
-        <input ref={citynameRef} type="text" className="p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="City Name" required />
+        <input ref={cityimageRef} type="text" className="p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="City Name" required />
         <input ref={priceRef} type="text" className="p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Price" required />
-        <input ref={cityimageRef} type="text" className="p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="City Image Url" required />
+        <input  ref={citynameRef} type="text" className="p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="City Image Url" required />
         <input ref={descriptionRef} type="text" className="p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Description" required />
+        <input ref={latref} type="text" className="p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Latitude" required />
+        <input ref={lonref} type="text" className="p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Longitude" required />
         <button type="submit"onClick={handleclick} className="h-12 bg-blue-500 rounded-md w-full text-white p-2 font-serif hover:bg-blue-600">Add</button>
     </form>
     </div>

@@ -25,7 +25,7 @@ const addhotels = () => {
             SendData(obj);
         }
     }
-
+    
     const SendData = async (obj) => {
         const res = await axios.post(url, obj);
         if (res.status === 201) {
@@ -34,7 +34,6 @@ const addhotels = () => {
             alert("Failed to send data!");
         }
     }
-
     return (
         <>
             <div className="h-[90vh] w-screen flex justify-center absolute items-center z-50">
