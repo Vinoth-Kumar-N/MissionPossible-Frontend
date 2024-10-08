@@ -29,7 +29,7 @@ const Home = () => {
               </div>
               <div className="font-bold text-blue-700">4.5 + Ratings</div>
             </div>
-            <div className=" mt-8 flex flex-col justify-center items-center gap-6">
+            <div className=" mt-8 flex flex-col justify-center items-center text-center">
               <p className="text-[3rem] text-red-500 font-bold">
                 Discover your Next Adventure with Us
               </p>
