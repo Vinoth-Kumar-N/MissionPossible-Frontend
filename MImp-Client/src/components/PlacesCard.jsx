@@ -21,7 +21,7 @@ const PlacesCard = () => {
       <ul className="flex flex-wrap justify-center">
         {placeslist.map((item, index) => (
           <li key={index} className="m-[1%] flex">
-            <div className="shadow-md h-[300px] w-[300px] flex flex-col rounded-2xl">
+            <div className="shadow-md h-[300px] w-[300px] flex flex-col rounded-2xl bg-slate-100">
               <img
                 className="w-auto h-[50%] rounded-lg m-2"
                 src={item.img}

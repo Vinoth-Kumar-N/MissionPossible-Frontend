@@ -28,7 +28,7 @@ function Map(props) {
   }, []);
 
   return isLoaded ? (
-    <div className="flex justify-center items-centers rounded-lg bg-slate-200">
+    <div className="flex justify-center items-centers rounded-lg">
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
