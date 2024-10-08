@@ -13,14 +13,14 @@ const City = () => {
         <CityDetails />
         <Map lat={13.082680} lng={80.270721}/>
         <Hotels />
+        <PlacesCard/>
         <div className="justify-center items-center flex">
         <button className="bg-black  text-white w-[20%] h-[20%] rounded-lg">Purchase</button>
         </div>
         <div className="w-screen">
           <p>want to convert currency?</p>
-          <div className="flex justify-start"><Currency/></div>
+          <div className="flex justify-start items-start"><Currency/></div>
         </div>
-        <PlacesCard/>
       </div>
     </>
   );

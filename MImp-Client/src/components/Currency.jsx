@@ -37,7 +37,7 @@ const Currency = () => {
     }; 
   return (
     <>
-    <div className="w-[100%] h-[20%] flex flex-col justify-center items-center ">
+    <div className="w-[50%] h-[20%] flex flex-col  ">
     <div className="flex flex-wrap flex-col justify-center border rounded-2xl p-5 shadow-md">
       <div className="text-xl">
         <label>Amount:</label>

@@ -30,7 +30,7 @@ const EndOut = () => {
 
     return (
         <div>
-            <form class="form relative">
+            <form class="input rounded-full px-8 py-3 border-2 border-transparent focus:outline-none focus:border-blue-500 placeholder-gray-400 transition-all duration-300 shadow-md m-[1%]">
                 <button class="absolute left-2 -translate-y-1/2 top-1/2 p-1">
                     <svg
                         width="17"
@@ -51,7 +51,6 @@ const EndOut = () => {
                     </svg>
                 </button>
                 <input
-                    class="input rounded-full px-8 py-3 border-2 border-transparent focus:outline-none focus:border-blue-500 placeholder-gray-400 transition-all duration-300 shadow-md m-[1%]"
                     placeholder="Search..."
                     required=""
                     type="text"
