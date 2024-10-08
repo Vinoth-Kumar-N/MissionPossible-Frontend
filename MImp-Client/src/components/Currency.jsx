@@ -9,12 +9,12 @@ const Currency = () => {
   const [output, setOutput] = useState();
 
   const getRates = async () => {
-    // fetch the data from API
+    // Fetch the data from API
     const response = await fetch(
       "https://v6.exchangerate-api.com/v6/59d560835c4e8d4f996adc83/latest/USD"
     ).then((response) => response.json());
 
-    // save the rates in the state
+    // Save the rates in the state
     if (response.result === "success") {
       setRates(response.conversion_rates);
       setRatesFetched(true);
@@ -26,86 +26,94 @@ const Currency = () => {
   }, []);
 
   const calculateOutput = async () => {
-    // fetch the selected from currency rates
+    // Fetch the selected from currency rates
     const response = await fetch(
       `https://v6.exchangerate-api.com/v6/59d560835c4e8d4f996adc83/latest/${fromCurrency}`
     ).then((response) => response.json());
     const fetchedRates = response.conversion_rates;
     const CurrencyRate = fetchedRates[toCurrency];
     const output = amount * CurrencyRate;
-    setOutput(output);
+    setOutput(output.toFixed(2));  // Set output with 2 decimal places
   };
+
   return (
-    <>
-      <div className="w-[50%] h-full flex justify-start">
-        <div className="w-[50%] h-[20%] flex flex-col">
-          <div className="flex flex-wrap flex-col border rounded-2xl p-5 shadow-md gap-2">
-            <div className="text-xl flex flex-col gap-2 justify-center">
-              <p>want to convert currency?</p>
-              <label>Amount:</label>
-              <input
-                className="rounded-lg border border-blue-500 w-[80%]"
-                type="number"
-                id="amount"
-                onChange={(e) => setAmount(e.target.value)}
-                value={amount}
-              />
-            </div>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="w-full max-w-lg bg-white rounded-2xl shadow-lg p-6 sm:p-8">
+        <h1 className="text-2xl font-bold text-center mb-6">Currency Converter</h1>
+        
+        <div className="space-y-6">
+          {/* Amount Input */}
+          <div className="flex flex-col gap-2">
+            <label htmlFor="amount" className="text-lg font-semibold">Amount:</label>
+            <input
+              className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500"
+              type="number"
+              id="amount"
+              onChange={(e) => setAmount(e.target.value)}
+              value={amount}
+              placeholder="Enter amount"
+            />
+          </div>
 
-            <div className="text-xl">
-              <label>From:</label>
-              <select
-                className="rounded-lg"
-                id="from"
-                value={fromCurrency}
-                onChange={(e) => setFromCurrency(e.target.value)}
-              >
-                {ratesFetched ? (
-                  Object.keys(rates).map((currency, index) => (
-                    <option key={index} value={currency}>
-                      {currency}
-                    </option>
-                  ))
-                ) : (
-                  <option defaultValue>USD</option>
-                )}
-              </select>
-            </div>
+          {/* From Currency Selector */}
+          <div className="flex flex-col gap-2">
+            <label htmlFor="from" className="text-lg font-semibold">From:</label>
+            <select
+              className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500"
+              id="from"
+              value={fromCurrency}
+              onChange={(e) => setFromCurrency(e.target.value)}
+            >
+              {ratesFetched ? (
+                Object.keys(rates).map((currency, index) => (
+                  <option key={index} value={currency}>
+                    {currency}
+                  </option>
+                ))
+              ) : (
+                <option defaultValue>USD</option>
+              )}
+            </select>
+          </div>
 
-            <div className="text-xl">
-              <label>To:</label>
-              <select
-                className="rounded-lg"
-                id="to"
-                value={toCurrency}
-                onChange={(e) => setToCurrency(e.target.value)}
-              >
-                {ratesFetched ? (
-                  Object.keys(rates).map((currency, index) => (
-                    <option key={index} value={currency}>
-                      {currency}
-                    </option>
-                  ))
-                ) : (
-                  <option defaultValue>EUR</option>
-                )}
-              </select>
-            </div>
-            <div className="">
-              <label>{output}</label>
-            </div>
-            <div className="w-full flex justify-center">
-              <button
-                className="w-[20%] h-10 flex justify-center items-center border rounded-md bg-blue-500 text-white hover:bg-blue-600"
-                onClick={() => calculateOutput()}
-              >
-                Calculate
-              </button>
-            </div>
+          {/* To Currency Selector */}
+          <div className="flex flex-col gap-2">
+            <label htmlFor="to" className="text-lg font-semibold">To:</label>
+            <select
+              className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500"
+              id="to"
+              value={toCurrency}
+              onChange={(e) => setToCurrency(e.target.value)}
+            >
+              {ratesFetched ? (
+                Object.keys(rates).map((currency, index) => (
+                  <option key={index} value={currency}>
+                    {currency}
+                  </option>
+                ))
+              ) : (
+                <option defaultValue>EUR</option>
+              )}
+            </select>
+          </div>
+
+          {/* Conversion Result */}
+          <div className="bg-blue-100 rounded-lg p-4 text-center text-lg">
+            {output ? `Converted Amount: ${output} ${toCurrency}` : "Converted amount will appear here."}
+          </div>
+
+          {/* Calculate Button */}
+          <div className="flex justify-center">
+            <button
+              className="w-full sm:w-auto px-6 py-2 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition duration-300"
+              onClick={() => calculateOutput()}
+            >
+              Convert
+            </button>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

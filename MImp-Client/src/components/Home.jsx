@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 import React from "react";
 import { LucideStarHalf, Star } from "lucide-react";
 import Cards from "./Cards";
@@ -16,43 +15,10 @@ const Home = () => {
             <div className="text-3xl mt-[5%] text-blue-700">
               {" "}
               Tamil Nadu&apos;s Best
-=======
-import React from 'react'
-import { LucideStarHalf, Star } from 'lucide-react'
-import Cards from './Cards'
-import Map from './Map'
-import {Link} from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
-import InfoPage from './InfoPage';
-import Footer from './Footer'
-import Air from './Air'
-export const Home = () => {
-   return (
-      <>
-         <div className='w-screen h-screen z-0 mt-[-1%]'>
-            <div className='w-[100%] h-[92vh] bg-[url("../assets/img/home.png")] bg-cover bg-no-repeat'>
-             <div className='w-[100%] h-[92vh] flex flex-col items-center font-bold backdrop-blur-sm'>
-               <div className='text-3xl mt-[5%] text-blue-700'> Tamil Nadu's Best</div>
-               <div className='text-3xl text-blue-700'>Travel Itinerary Planner</div>
-               <div className='flex space-x-1 mt-[5%]'>
-                  <div className='flex space-x-1'><Star color='orange' fill='orange' /><Star color='orange' fill='orange' /><Star color='orange' fill='orange' /><Star color='orange' fill='orange' /><LucideStarHalf color='orange' fill='orange' /></div>
-                  <div className='font-bold text-blue-700'>4.5 + Ratings</div>
-               </div>
-                  <div className=" mt-8 flex flex-col justify-center items-center gap-6">
-                     <p className="text-[3rem] text-red-500 font-bold">Discover your Next Adventure with Us</p>
-                     <p className="text-[3rem] text-black font-bold">Itineraries at your Fingertips</p>
-                     <p className="text-[16px] text-[#3d4dad]">Your personal trip planner and travel curator, creating otineraries tailored to your interest</p>
-                  </div>
-                  <div className="mt-4">
-                     <button className="w-[7rem] h-[3rem] bg-black text-white rounded-md"><a href="/register" className="">Get Started</a></button>
-                  </div>
-               </div>
->>>>>>> Stashed changes
             </div>
             <div className="text-3xl text-blue-700">
               Travel Itinerary Planner
             </div>
-<<<<<<< Updated upstream
             <div className="flex space-x-1 mt-[5%]">
               <div className="flex space-x-1">
                 <Star color="orange" fill="orange" />
@@ -104,14 +70,4 @@ export const Home = () => {
     </>
   );
 };
-export default Home;
-=======
-            <Air/>
-            <Footer />
-         </div>
-      </>
-   )
-}
-
-export default Home;
->>>>>>> Stashed changes
+export default Home;  

@@ -66,7 +66,7 @@ const CreateTrip = () => {
     }, [FormData]);
 
     const onGenerateTrip = () => {
-        if (!FormData?.destination || !FormData?.noOfDays || !FormData?.noOfMembers || !FormData?.budget) {
+        if (!FormData?.destination || !FormData?.noOfDays || !FormData?.Travelers || !FormData?.budget) {
             toast('Please fill out all the required fields before generating the trip.');
             return;
         }
