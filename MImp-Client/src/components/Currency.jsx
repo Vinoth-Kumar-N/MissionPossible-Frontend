@@ -39,7 +39,7 @@ const Currency = () => {
     <>
       <div className="w-[400px] h-full flex justify-start">
         <div className="w-[400px] h-[20%] flex flex-col">
-          <div className="flex flex-wrap flex-col border rounded-2xl p-5 shadow-md gap-2">
+          <div className="flex flex-wrap flex-col border bg-slate-100 rounded-2xl p-5 shadow-md gap-2">
             <div className="text-xl flex flex-col gap-2 justify-center">
               <p>want to convert currency?</p>
               <label>Amount:</label>
