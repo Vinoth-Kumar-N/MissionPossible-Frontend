@@ -33,18 +33,22 @@ const Currency = () => {
     const fetchedRates = response.conversion_rates;
     const CurrencyRate = fetchedRates[toCurrency];
     const output = amount * CurrencyRate;
-    setOutput(output.toFixed(2));  // Set output with 2 decimal places
+    setOutput(output.toFixed(2)); // Set output with 2 decimal places
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="w-full max-w-lg bg-white rounded-2xl shadow-lg p-6 sm:p-8">
-        <h1 className="text-2xl font-bold text-center mb-6">Currency Converter</h1>
-        
+        <h1 className="text-2xl font-bold text-center mb-6">
+          Currency Converter
+        </h1>
+
         <div className="space-y-6">
           {/* Amount Input */}
           <div className="flex flex-col gap-2">
-            <label htmlFor="amount" className="text-lg font-semibold">Amount:</label>
+            <label htmlFor="amount" className="text-lg font-semibold">
+              Amount:
+            </label>
             <input
               className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500"
               type="number"
@@ -57,7 +61,9 @@ const Currency = () => {
 
           {/* From Currency Selector */}
           <div className="flex flex-col gap-2">
-            <label htmlFor="from" className="text-lg font-semibold">From:</label>
+            <label htmlFor="from" className="text-lg font-semibold">
+              From:
+            </label>
             <select
               className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500"
               id="from"
@@ -78,7 +84,9 @@ const Currency = () => {
 
           {/* To Currency Selector */}
           <div className="flex flex-col gap-2">
-            <label htmlFor="to" className="text-lg font-semibold">To:</label>
+            <label htmlFor="to" className="text-lg font-semibold">
+              To:
+            </label>
             <select
               className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500"
               id="to"
@@ -99,7 +107,9 @@ const Currency = () => {
 
           {/* Conversion Result */}
           <div className="bg-blue-100 rounded-lg p-4 text-center text-lg">
-            {output ? `Converted Amount: ${output} ${toCurrency}` : "Converted amount will appear here."}
+            {output
+              ? `Converted Amount: ${output} ${toCurrency}`
+              : "Converted amount will appear here."}
           </div>
 
           {/* Calculate Button */}

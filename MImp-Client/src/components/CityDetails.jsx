@@ -4,7 +4,7 @@ const CityDetails = () => {
   return (
     <>
       <div className="flex h-full w-full justify-center px-4 p-2 sm:px-8">
-        <div className="h-auto w-full sm:w-[90%] mt-8 flex flex-col lg:flex-row bg-slate-500 rounded-lg">
+        <div className="h-auto w-full sm:w-[90%] mt-8 flex flex-col lg:flex-row shadow-md bg-slate-500 rounded-lg">
           {/* Image Section */}
           <div className="w-full lg:w-1/3 flex justify-center items-center">
             <img

@@ -14,7 +14,7 @@ const Hotels = () => {
   return (
     <>
       <div className="w-full flex justify-center">
-        <h1 className='text-3xl'>Hotels</h1>
+        <h1 className='text-3xl bg-lime-100 shadow-md w-full flex justify-center h-[3rem] items-center'>Hotels</h1>
       </div>
       <div className="w-full h-full flex justify-center flex-wrap gap-5">
         {hotels.map(hotel => (

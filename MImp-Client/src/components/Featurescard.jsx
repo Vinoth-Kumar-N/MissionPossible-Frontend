@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Featurescard = () => {
   return (
     <Link to={"/city"}>
-      <div className="w-[300px] h-auto  rounded-xl bg-[#e8eefc] text-black">
+      <div className="w-[300px] h-auto shadow-md rounded-xl bg-[#e8eefc] text-black">
         <div className="relative flex flex-col items-center">
           <div className="h-[45%] m-3">
             <img
