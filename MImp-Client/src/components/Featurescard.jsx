@@ -15,10 +15,9 @@ const Featurescard = () => {
         </div>
         <div className='w-full h-full flex flex-col p-4'>
           <div className='mb-4'>
-            <p className='text-2xl font-semibold'>Coimbatore</p>
             <p className='text-gray-400 font-normal'>16 January 2024</p>
-            <p className='font-normal mt-2'>
-            Coimbatore, often referred to as the "Manchester of South India," is a bustling city located in the state of Tamil Nadu. Nestled near the Western Ghats, Coimbatore enjoys a pleasant climate and is surrounded by scenic landscapes, including waterfalls, hills, and lush greenery.
+            <p className='font-normal mt-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga dolor, officiis debitis nobis minus
+            <p className='text-2xl font-semibold flex justify-end text-slate-600'>&#x2012; name</p>
             </p>
           </div>
         </div>

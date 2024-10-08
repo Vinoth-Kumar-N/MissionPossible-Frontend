@@ -10,7 +10,10 @@ const Admin = () => {
             <span class="box">Feature</span>
           </Link>
           <Link to={"/addcity"}>
-            <span class="box">City Add</span>
+            <span class="box">Add City</span>
+          </Link>
+          <Link to={"/addhotels"}>
+            <span class="box">Add Hotels</span>
           </Link>
         </div>
       </div>

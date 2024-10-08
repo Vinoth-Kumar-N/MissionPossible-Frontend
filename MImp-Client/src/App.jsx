@@ -11,9 +11,9 @@ import AddCity from './components/AddCity';
 import Home1 from './components/Home1'
 import EndOut from './components/EndOut';
 import Trip from './components/Trip'
-
 import City from './components/City';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import AddHotels from './components/AddHotels';
 const App = () => {
   return (
     <BrowserRouter>
@@ -31,6 +31,7 @@ const App = () => {
         <Route path='/city' element={<City />} />
         <Route path='/endoutput' element={<EndOut />} />
         <Route path='*' element={<Error />}/>
+        <Route path='/addhotels' element={<AddHotels/>}/>
       </Routes>
     </BrowserRouter>
   );
