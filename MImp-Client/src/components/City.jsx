@@ -4,7 +4,7 @@ import Hotels from "./Hotels";
 import Weather from "./Weather";
 import Map from './Map'
 import  Currency  from './Currency'
-// import PlacesCard from './PlacesCard'
+import PlacesCard from './PlacesCard'
 const City = () => {
   return (
     <>
@@ -20,6 +20,7 @@ const City = () => {
           <p>want to convert currency?</p>
           <div className="flex justify-start"><Currency/></div>
         </div>
+        <PlacesCard/>
       </div>
     </>
   );

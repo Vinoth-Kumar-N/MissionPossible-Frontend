@@ -17,8 +17,8 @@ const PlacesCard = () => {
   }, []);
 
   return (
-    <>
-      <ul>
+    <div className='w-screen'>
+      <ul className='flex flex-wrap'>
         {placeslist.map((item, index) => (
           <li key={index}>
             <div className="w-[30%] shadow-md flex rounded-2xl">
@@ -35,7 +35,7 @@ const PlacesCard = () => {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 };
 
