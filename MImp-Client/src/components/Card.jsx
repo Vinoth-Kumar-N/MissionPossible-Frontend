@@ -1,14 +1,24 @@
 import React, { useState } from "react";
 import { Heart, Star } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Card = (props) => {
   const [isLiked, setIsLiked] = useState(false);
+  const navigate = useNavigate();
+
   const handleHeartClick = () => {
     setIsLiked(!isLiked);
   };
-  console.table(props.data);
+
+  const handleCardClick = () => {
+    navigate(`/city/`, { state: { data: props.data } });
+  };
+
   return (
-    <div className="w-[300px] h-[350px] border rounded-lg overflow-hidden flex-shrink-0 bg-[#f8f8f8]">
+    <div
+      onClick={handleCardClick}
+      className="w-[300px] h-[350px] border rounded-lg overflow-hidden flex-shrink-0 bg-[#f8f8f8] cursor-pointer"
+    >
       <div className="relative">
         <img
           src={props.data.coverimg}

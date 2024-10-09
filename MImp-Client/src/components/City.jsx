@@ -6,14 +6,16 @@ import Map from "./Map";
 import Air from "./Air";
 import Currency from "./Currency";
 import PlacesCard from "./PlacesCard";
-const City = () => {
+import { useLocation } from "react-router-dom";
+const City = (props) => {
+  const location = useLocation();
+  const { data } = location.state || {};
   return (
     <>
       <div className="flex flex-col gap-10 p-2">
-        <Weather />
-        <CityDetails />
-        <Map lat={13.08268} lng={80.270721} />
-        <Air />
+        <Weather name={data.cityimg}/>
+        <CityDetails data={data} />
+        <Map lat={Number(data.lat)} lng={Number(data.lon)} />
         <Hotels />
         <h1 className="text-2xl flex justify-center items-center rounded-md shadow-md bg-lime-100 h-[50px]">
           Places
@@ -22,6 +24,7 @@ const City = () => {
         <div className="justify-center items-center flex">
           <button className="box">Purchase</button>
         </div>
+        <Air name={data.cityimg}/>
         <Currency />
       </div>
     </>
