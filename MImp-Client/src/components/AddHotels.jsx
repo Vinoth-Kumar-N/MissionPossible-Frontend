@@ -10,37 +10,6 @@ const addhotels = () => {
   const hotelimageRef = useRef(null);
   const priceRef = useRef(null);
   const descriptionRef = useRef(null);
-
-    const handleclick = (e) => {
-        e.preventDefault();
-        const obj = {
-            ratings: ratingsRef.current.value,
-            price: priceRef.current.value,
-            hotelimg: hotelimageRef.current.value,
-            description: descriptionRef.current.value,
-            hotelname: hotelnameRef.current.value
-        }
-        if (obj) {
-            console.log(obj);
-            SendData(obj);
-        }
-    }
-    
-    const SendData = async (obj) => {
-        const res = await axios.post(url, obj);
-        if (res.status === 201) {
-            alert("Data sent successfully");
-        } else {
-            alert("Failed to send data!");
-        }
-    }
-    return (
-        <>
-            <div className="h-[90vh] w-screen flex justify-center absolute items-center z-50">
-                <div className="h-100 w-[370px] pb-10 flex flex-col justify-center items-center rounded-[30px] shadow-md">
-                    <div className="w-full flex justify-end align-top">
-                        <Link to={'/admin'}><CircleX /></Link>
-                    </div>
   const handleclick = (e) => {
     e.preventDefault();
     const obj = {
@@ -50,21 +19,19 @@ const addhotels = () => {
       description: descriptionRef.current.value,
       hotelname: hotelnameRef.current.value,
     };
+    const SendData = async (obj) => {
+      const res = await axios.post(url, obj);
+      if (res.status === 201) {
+        alert("Data sent successfully");
+      } else {
+        alert("Failed to send data!");
+      }
+    };
     if (obj) {
       console.log(obj);
       SendData(obj);
     }
   };
-
-  const SendData = async (obj) => {
-    const res = await axios.post(url, obj);
-    if (res.status === 201) {
-      alert("Data sent successfully");
-    } else {
-      alert("Failed to send data!");
-    }
-  };
-
   return (
     <>
       <div className="h-[90vh] w-screen flex justify-center absolute items-center z-50">

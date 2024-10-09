@@ -2,11 +2,20 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const PlacesCard = () => {
-  const placeslist=[{
-    img:"abc",
-    placename:"abc",
-    Description:"abc",
-  }]
+  const [placeslist, setplaceslist] = useState([]);
+
+  useEffect(() => {
+    const url = "https://67038440bd7c8c1ccd41bc90.mockapi.io/places";
+    axios
+      .get(url)
+      .then((response) => {
+        setplaceslist(response.data);
+      })
+      .catch((error) => {
+        console.error("There was an error fetching the project data!", error);
+      });
+  }, []);
+
   return (
     <div className="w-screen">
       <ul className="flex flex-wrap justify-center">
