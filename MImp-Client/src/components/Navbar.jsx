@@ -29,6 +29,7 @@ const Navbar = () => {
       const response = await axios.post(url, formData);
       if (response.status === 201) {
         alert("Message sent successfully!");
+        // Clear the form fields
         nameRef.current.value = "";
         emailRef.current.value = "";
         phoneRef.current.value = "";
@@ -60,7 +61,6 @@ const Navbar = () => {
         <div className="lg:hidden p-3 cursor-pointer" onClick={() => setSidebarOpen(true)}>
           <Menu className="text-white" size={30} />
         </div>
-
         <div className="hidden lg:flex">
           <ul className="flex gap-8 mr-10">
             <li className="rounded-md">
@@ -89,28 +89,24 @@ const Navbar = () => {
             sidebarOpen ? "translate-x-0" : "-translate-x-full"
           } lg:hidden`}
         >
-          <Link to={"/register"} className="w-full h-full block" onClick={handleSidebarClose}>
-            <div className="flex flex-col gap-6">
-              <div className="flex justify-between mb-8">
-                <p className="font-bold text-xl text-white">Trip Planner</p>
-                <CircleX className="text-red-500 cursor-pointer" onClick={handleSidebarClose} size={30} />
-              </div>
-              <ul className="flex flex-col gap-6">
-                <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white border-b border-white">
-                  For Booking
-                </li>
-                <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white border-b border-white">
-                  About us
-                </li>
-                <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white border-b border-white" onClick={() => { setVisible(true); handleSidebarClose(); }}>
-                  Contact
-                </li>
-                <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white">
-                <div className="flex flex-col"> <User2 className="rounded-full" /> Admin Login</div>
-                </li>
-              </ul>
-            </div>
-          </Link>
+          <div className="flex justify-between mb-8">
+            <p className="font-bold text-xl text-white">Trip Planner</p>
+            <CircleX className="text-red-500 cursor-pointer" onClick={handleSidebarClose} size={30} />
+          </div>
+          <ul className="flex flex-col gap-6">
+            <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white border-b border-white">
+              <Link to="/register" onClick={handleSidebarClose}>For Booking</Link>
+            </li>
+            <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white border-b border-white">
+              <Link to="/aboutus" onClick={handleSidebarClose}>About us</Link>
+            </li>
+            <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white border-b border-white" onClick={() => { setVisible(true); handleSidebarClose(); }}>
+              Contact
+            </li>
+            <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white">
+              <div className="flex flex-col"> <User2 className="rounded-full" /> Admin Login</div>
+            </li>
+          </ul>
         </div>
       </div>
 

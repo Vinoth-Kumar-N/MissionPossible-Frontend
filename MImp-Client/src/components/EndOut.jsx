@@ -10,13 +10,13 @@ const EndOut = () => {
     const FetchData = async () => {
         try {
             const res = await axios.get(url);
-            alert(res.status);
+            // alert(res.status);
             if (res.status === 200) {
-                alert("Data Fetched Successfully");
+                // alert("Data Fetched Successfully");
                 setData(res.data);
                 console.table(res.data);
             } else {
-                alert("Error! Data not fetched");
+                 alert("Error! Data not fetched");
             }
         } catch (error) {
             alert("Error occurred: " + error.message);
