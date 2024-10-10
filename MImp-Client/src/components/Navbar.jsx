@@ -66,7 +66,7 @@ const Navbar = () => {
               Contact
             </li>
             <li className="rounded-md">
-              <Link to={"./admin"}>
+              <Link to={"./adminlogin"}>
                 <User2 className="rounded-full" />
               </Link>
             </li>

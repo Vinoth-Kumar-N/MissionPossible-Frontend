@@ -42,7 +42,7 @@ const Home = () => {
               </p>
             </div>
             <div className="mt-4 w-[7rem] h-[3rem] bg-black text-white rounded-md flex justify-center items-center">
-              <Link to={"/login"} className="">
+              <Link to={"/register"} className="">
                 Get Started
               </Link>
             </div>
@@ -51,14 +51,6 @@ const Home = () => {
         <Cards />
         <div className="w-screen">
           <div className="flex justify-center items-center">
-            <div className="flex">
-              <Link to={"/trip"}>
-                <button className="text-white text-lg bg-blue-500 pl-5 pr-5 pt-3 pb-3 rounded-lg flex">
-                  View More
-                  <ArrowRight className="pl-1 text-white text-lg" />
-                </button>
-              </Link>
-            </div>
           </div>
         </div>
         <Footer />

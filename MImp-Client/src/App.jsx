@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Login from './components/Login';
+import AdminLogin from './components/AdminLogin';
 import Admin from './components/Admin'
 import Error from './components/Error';
 import Register from './components/Register';
@@ -26,6 +27,7 @@ const App = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/admin' element={<Admin />} />
+        <Route path='/adminlogin' element={<AdminLogin />} />
         <Route path='/addfeature' element={<AddFeature />} />
         <Route path='/addcity' element={<AddCity />} />
         <Route path='/city' element={<City />} />

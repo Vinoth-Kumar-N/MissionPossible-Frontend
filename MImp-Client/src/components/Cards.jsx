@@ -10,7 +10,6 @@ const Cards = () => {
     try {
       const res = await axios.get(url);
       if (res.status === 200) {
-        alert(`Fetched! ${res.status}`);
         setData(res.data); 
         console.table(res.data);
       } else {
