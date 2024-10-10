@@ -42,11 +42,11 @@ const Home = () => {
               </p>
             </div>
             <div className="mt-4">
-              <a href="/register" className="">
+              <Link to={"/register"}>
                 <button className="w-[7rem] h-[3rem] bg-black text-white rounded-md">
                   Get Started
                 </button>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
