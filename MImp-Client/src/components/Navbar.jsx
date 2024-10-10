@@ -6,13 +6,16 @@ import axios from "axios";
 const Navbar = () => {
   const url = import.meta.env.VITE_CONTACT_API;
 
-  const nameRef = useRef(null);
-  const emailRef = useRef(null);
-  const phoneRef = useRef(null);
-  const placeRef = useRef(null);
-  const dateref = useRef(null);
-  const people = useRef(null);
-  const vacation = useRef(null);
+  const nameRef = useRef("");
+  const emailRef = useRef("");
+  const phoneRef = useRef("");
+  const placeRef = useRef("");
+  const dateref = useRef("");
+  const peopleRef = useRef("");
+  const vacationRef = useRef("");
+
+  const [visible, setVisible] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,9 +25,10 @@ const Navbar = () => {
       phone: phoneRef.current.value,
       place: placeRef.current.value,
       date: dateref.current.value,
-      people: people.current.value,
-      vacation: vacation.current.value,
+      people: peopleRef.current.value,
+      vacation: vacationRef.current.value,
     };
+
     try {
       const response = await axios.post(url, formData);
       if (response.status === 201) {
@@ -35,16 +39,13 @@ const Navbar = () => {
         phoneRef.current.value = "";
         placeRef.current.value = "";
         dateref.current.value = "";
-        people.current.value = "";
-        vacation.current.value = "";
+        peopleRef.current.value = "";
+        vacationRef.current.value = "";
       }
     } catch (error) {
-      alert("An error occurred while sending the message.");
+      alert("An error occurred while sending the message. Please try again.");
     }
   };
-
-  const [visible, setVisible] = useState(false);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handleSidebarClose = () => {
     setSidebarOpen(false);
@@ -67,13 +68,13 @@ const Navbar = () => {
               <Link to={"/register"}>For Booking</Link>
             </li>
             <li className="rounded-md">
-              <Link to={"/aboutus"}>About us</Link>
+              <Link to={"/aboutus"}>About Us</Link>
             </li>
             <li className="rounded-md" onClick={() => setVisible(true)}>
               Contact
             </li>
             <li className="rounded-md">
-              <Link to={"./adminlogin"}>
+              <Link to={"/adminlogin"}>
                 <User2 className="rounded-full" />
               </Link>
             </li>
@@ -94,18 +95,32 @@ const Navbar = () => {
             <CircleX className="text-red-500 cursor-pointer" onClick={handleSidebarClose} size={30} />
           </div>
           <ul className="flex flex-col gap-6">
-            <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white border-b border-white">
-              <Link to="/register" onClick={handleSidebarClose}>For Booking</Link>
-            </li>
-            <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white border-b border-white">
-              <Link to="/aboutus" onClick={handleSidebarClose}>About us</Link>
-            </li>
-            <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white border-b border-white" onClick={() => { setVisible(true); handleSidebarClose(); }}>
+            <Link to="/register" onClick={handleSidebarClose}>
+              <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white border-b border-white">
+                For Booking
+              </li>
+            </Link>
+            <Link to="/aboutus" onClick={handleSidebarClose}>
+              <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white border-b border-white">
+                About Us
+              </li>
+            </Link>
+            <li
+              className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white border-b border-white"
+              onClick={() => {
+                setVisible(true);
+                handleSidebarClose();
+              }}
+            >
               Contact
             </li>
-            <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white">
-              <div className="flex flex-col"> <User2 className="rounded-full" /> Admin Login</div>
-            </li>
+            <Link to="/adminlogin" onClick={handleSidebarClose}>
+              <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white">
+                <div className="flex flex-col">
+                  <User2 className="rounded-full" /> Admin Login
+                </div>
+              </li>
+            </Link>
           </ul>
         </div>
       </div>
@@ -120,25 +135,64 @@ const Navbar = () => {
             <form onSubmit={handleSubmit}>
               <p className="text-red-500 mb-4">*All fields are mandatory</p>
               <div className="mb-4">
-                <input className="w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300" placeholder="Name *" type="text" ref={nameRef} required />
+                <input
+                  className="w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300"
+                  placeholder="Name *"
+                  type="text"
+                  ref={nameRef}
+                  required
+                />
               </div>
               <div className="mb-4">
-                <input className="w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300" placeholder="Phone Number *" type="tel" ref={phoneRef} required />
+                <input
+                  className="w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300"
+                  placeholder="Phone Number *"
+                  type="tel"
+                  ref={phoneRef}
+                  required
+                />
               </div>
               <div className="mb-4">
-                <input className="w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300" placeholder="Email ID *" type="email" ref={emailRef} required />
+                <input
+                  className="w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300"
+                  placeholder="Email ID *"
+                  type="email"
+                  ref={emailRef}
+                  required
+                />
               </div>
               <div className="mb-4">
-                <input className="w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300" placeholder="Travel Destination *" type="text" ref={placeRef} required />
+                <input
+                  className="w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300"
+                  placeholder="Travel Destination *"
+                  type="text"
+                  ref={placeRef}
+                  required
+                />
               </div>
               <div className="mb-4">
-                <input className="w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300" placeholder="Travel Date" type="date" ref={dateref} />
+                <input
+                  className="w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300"
+                  placeholder="Travel Date"
+                  type="date"
+                  ref={dateref}
+                />
               </div>
               <div className="mb-4">
-                <input className="w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300" placeholder="Number of People *" type="number" ref={people} required />
+                <input
+                  className="w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300"
+                  placeholder="Number of People *"
+                  type="number"
+                  ref={peopleRef}
+                  required
+                />
               </div>
               <div className="mb-4">
-                <select className="w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300" ref={vacation} required>
+                <select
+                  className="w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-700 transition duration-300"
+                  ref={vacationRef}
+                  required
+                >
                   <option value="">Select Vacation Type *</option>
                   <option value="Family">Family</option>
                   <option value="Friends">Friends</option>
@@ -148,7 +202,9 @@ const Navbar = () => {
                 </select>
               </div>
               <div className="flex justify-center p-[6%]">
-                <button className="px-5 py-2 bg-neutral-700 text-white rounded-3xl hover:bg-neutral-500 transition duration-300" type="submit">Submit & Enquiry now</button>
+                <button className="px-5 py-2 bg-neutral-700 text-white rounded-3xl hover:bg-neutral-500 transition duration-300">
+                  Send
+                </button>
               </div>
             </form>
           </div>
