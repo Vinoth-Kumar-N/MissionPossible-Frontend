@@ -47,12 +47,12 @@ const Footer = () => {
             <div className="container mx-auto flex flex-col md:flex-row justify-between items-center mt-10">
                 <div className="mb-4 md:mb-0">
                     <h4 className="font-semibold">Call Us</h4>
-                    <p className="text-lg">+91 9940882200</p>
+                    <p className="text-lg">+91 9092884088</p>
                 </div>
 
                 <div className="mb-4 md:mb-0">
                     <h4 className="font-semibold">Email Us</h4>
-                    <p className="text-lg">mail@missionpossible.in</p>
+                    <p className="text-lg">abishek3834@gmail.com</p>
                 </div>
 
                 <div className="flex items-center space-x-4">

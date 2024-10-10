@@ -1,11 +1,16 @@
 import React from 'react'
+import abi from '../assets/img/abidp2.jpg'
 import Footer from './Footer';
 const About = () => {
   const teamMembers = [
     {
       name: 'Abishek S',
-      description: 'Abishek is a highly motivated Full-Stack developer with a keen interest in crafting user-friendly and responsive designs. He focuses on ensuring that the website\'s interface is both functional and visually appealing. With a passion for UI/UX, he plays a crucial role in creating the best user experience for our travel itinerary planner.',
-      image: 'https://via.placeholder.com/150', // Placeholder for Abishek's photo
+      description: (
+        <span>
+          Abishek is a Full Stack developer with extensive knowledge in problem-solving. He excels in building scalable, responsive web applications and focuses on crafting seamless user experiences. Abishek’s expertise in both front-end and back-end development ensures high-quality deliverables. Check out his portfolio at <a href="https://codewithabi.vercel.app" target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">codewithabi.vercel.app</a> to explore his work.
+        </span>
+      ),
+      image: abi,
     },
     {
       name: 'Ponnarasu A',
