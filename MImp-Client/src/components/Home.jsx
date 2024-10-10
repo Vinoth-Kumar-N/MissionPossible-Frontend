@@ -41,11 +41,9 @@ const Home = () => {
                 otineraries tailored to your interest
               </p>
             </div>
-            <div className="mt-4">
-              <Link to={"/register"}>
-                <button className="w-[7rem] h-[3rem] bg-black text-white rounded-md">
-                  Get Started
-                </button>
+            <div className="mt-4 w-[7rem] h-[3rem] bg-black text-white rounded-md flex justify-center items-center">
+              <Link to={"/login"} className="">
+                Get Started
               </Link>
             </div>
           </div>
