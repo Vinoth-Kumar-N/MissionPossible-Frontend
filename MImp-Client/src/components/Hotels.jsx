@@ -22,8 +22,8 @@ const Hotels = () => {
         {hotels.map((hotel) => (
           <HotelCard
             key={hotel.id}
-            img={hotel.img}
-            name={hotel.name}
+            img={hotel.hotelimg}
+            name={hotel.hotelname}
             price={hotel.price}
           />
         ))}
