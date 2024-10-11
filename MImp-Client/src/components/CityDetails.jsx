@@ -8,7 +8,7 @@ const CityDetails = (props) => {
         {/* City Image Section */}
         <div className="w-full lg:w-1/3 bg-gray-100 flex justify-center items-center p-4">
           <img
-            src={props.data.coverimg}
+            src={props.data.cityname}
             alt="City Image"
             className="h-64 w-full object-cover rounded-lg shadow-md"
           />
