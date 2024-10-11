@@ -1,11 +1,11 @@
 import React from "react";
 
-const HotelCard = ({ name, image, price }) => {
+const HotelCard = ({ name, img, price }) => {
   return (
     <div className="h-[300px] w-[300px] shadow-md bg-slate-300 rounded-md flex flex-col gap-2 p-3 justify-center">
       <div className="h-[50%] w-full rounded-md">
         <img
-          src={image}
+          src={img}
           alt={name}
           className="h-full w-full rounded-md bg-slate-50"
         />

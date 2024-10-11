@@ -11,6 +11,7 @@ const Hotels = () => {
       .then((response) => setHotels(response.data))
       .catch((error) => console.error("Error fetching hotels:", error));
   }, []);
+  console.log(hotels);
   return (
     <>
       <div className="w-full flex justify-center">
