@@ -25,7 +25,7 @@ const Cards = () => {
   }, []);
 
   return (
-    <div className="w-full flex flex-row gap-4 overflow-x-scroll">
+    <div className="w-full flex flex-row gap-4 overflow-x-auto p-2">
       {data.map((item, index) => (
         <div key={index} className="min-w-[300px] h-[200px] border rounded-md shadow-md p-4 bg-white">
           <Featurescard data={item} />

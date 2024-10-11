@@ -8,13 +8,13 @@ const Home = () => {
   return (
     <>
       <div className="w-screen h-screen z-0 mt-[-1%]">
-        <div className="w-[100%] h-[92vh] bg-[url('../assets/img/home.png')] bg-cover bg-no-repeat bg-green-900">
-          <div className="w-[100%] h-[92vh] flex flex-col items-center font-bold backdrop-blur-sm bg-black/40">
-            <div className="text-3xl mt-[5%] text-white">
+        <div className="w-full h-[92vh] bg-[url('../assets/img/home.png')] bg-cover bg-no-repeat bg-green-900">
+          <div className="w-full h-full flex flex-col items-center font-bold backdrop-blur-sm bg-black/40">
+            <div className="text-2xl sm:text-3xl mt-10 text-white">
               Tamil Nadu&apos;s Best
             </div>
-            <div className="text-3xl text-white">Travel Itinerary Planner</div>
-            <div className="flex space-x-1 mt-[5%]">
+            <div className="text-2xl sm:text-3xl text-white">Travel Itinerary Planner</div>
+            <div className="flex space-x-1 mt-5">
               <div className="flex space-x-1">
                 <Star color="orange" fill="orange" />
                 <Star color="orange" fill="orange" />
@@ -25,13 +25,13 @@ const Home = () => {
               <div className="font-bold text-white">4.5 + Ratings</div>
             </div>
             <div className="mt-8 flex flex-col justify-center items-center text-center">
-              <p className="text-[3rem] text-yellow-300 font-bold">
+              <p className="text-2xl sm:text-[3rem] text-yellow-300 font-bold">
                 Discover your Next Adventure with Us
               </p>
-              <p className="text-[3rem] text-white font-bold">
+              <p className="text-2xl sm:text-[3rem] text-white font-bold">
                 Itineraries at your Fingertips
               </p>
-              <p className="text-[16px] text-[#e0e3fc]">
+              <p className="text-base sm:text-[16px] text-[#e0e3fc]">
                 Your personal trip planner and travel curator, creating
                 itineraries tailored to your interest
               </p>
@@ -43,12 +43,12 @@ const Home = () => {
         </div>
 
         <div className="w-full mt-10 flex justify-center items-center">
-          <h2 className="text-3xl font-bold text-blue-700">
+          <h2 className="text-2xl sm:text-3xl font-bold text-blue-700">
             Happy Clients' Reviews
           </h2>
         </div>
 
-        <div className="w-full h-[50vh] overflow-x-scroll p-10 space-x-4 flex">
+        <div className="w-full h-[50vh] overflow-x-auto p-5 sm:p-10 space-x-4 flex">
           <Cards />
         </div>
 

@@ -10,13 +10,11 @@ const EndOut = () => {
     const FetchData = async () => {
         try {
             const res = await axios.get(url);
-            // alert(res.status);
             if (res.status === 200) {
-                // alert("Data Fetched Successfully");
                 setData(res.data);
                 console.table(res.data);
             } else {
-                 alert("Error! Data not fetched");
+                alert("Error! Data not fetched");
             }
         } catch (error) {
             alert("Error occurred: " + error.message);
@@ -28,9 +26,9 @@ const EndOut = () => {
     }, []);
 
     return (
-        <div>
-            <form className="input rounded-full px-8 py-3 border-2 border-transparent focus:outline-none focus:border-blue-500 placeholder-gray-400 transition-all duration-300 shadow-md m-[1%]">
-                <button>
+        <div className="p-4">
+            <form className="flex items-center rounded-full border-2 border-transparent focus:outline-none focus:border-blue-500 placeholder-gray-400 transition-all duration-300 shadow-md mb-4">
+                <button type="submit">
                     <svg
                         width="17"
                         height="16"
@@ -52,7 +50,8 @@ const EndOut = () => {
                 <input
                     placeholder="Search..."
                     required=""
-                    type="text"   
+                    type="text"
+                    className="flex-grow rounded-l-full px-4 py-2"
                 />
                 <button type="reset">
                     <svg
@@ -70,12 +69,12 @@ const EndOut = () => {
                     </svg>
                 </button>
             </form>
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap justify-center">
                 {Data && Data.length > 0 ? (
                     Data.map((item) => (
                         <Card
                             key={item.id}
-                            className="w-full m-[1%] sm:w-1/2 md:w-1/3 lg:w-1/4 p-2"
+                            className="w-full m-2 sm:w-1/2 md:w-1/3 lg:w-1/4 p-2"
                             data={item}
                         />
                     ))

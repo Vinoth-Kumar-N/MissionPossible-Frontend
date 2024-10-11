@@ -6,7 +6,8 @@ const Card = (props) => {
   const [isLiked, setIsLiked] = useState(false);
   const navigate = useNavigate();
 
-  const handleHeartClick = () => {
+  const handleHeartClick = (e) => {
+    e.stopPropagation(); // Prevent the card click from triggering on heart click
     setIsLiked(!isLiked);
   };
 
@@ -17,7 +18,7 @@ const Card = (props) => {
   return (
     <div
       onClick={handleCardClick}
-      className="w-[300px] h-[350px] border rounded-lg overflow-hidden flex-shrink-0 bg-[#f8f8f8] cursor-pointer"
+      className="w-full max-w-[300px] h-[350px] border rounded-lg overflow-hidden flex-shrink-0 bg-[#f8f8f8] cursor-pointer m-2"
     >
       <div className="relative">
         <img
@@ -40,9 +41,7 @@ const Card = (props) => {
           <Heart
             onClick={handleHeartClick}
             color={isLiked ? "white" : "black"}
-            className={`w-6 h-6 rounded-full ${
-              isLiked ? "bg-red-500" : "bg-[#D9D9D9]"
-            } p-1 cursor-pointer`}
+            className={`w-6 h-6 rounded-full ${isLiked ? "bg-red-500" : "bg-[#D9D9D9]"}`}
           />
         </div>
       </div>
