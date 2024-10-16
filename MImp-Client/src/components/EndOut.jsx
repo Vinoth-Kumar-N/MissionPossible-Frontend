@@ -3,7 +3,7 @@ import Card from './Card';
 import axios from 'axios';
 
 const EndOut = () => {
-    const url = 'https://6703ae46ab8a8f89273132cf.mockapi.io/AddCity';
+    const url = import.meta.env.VITE_ADD_CITY;
     
     const [Data, setData] = useState([]);
 

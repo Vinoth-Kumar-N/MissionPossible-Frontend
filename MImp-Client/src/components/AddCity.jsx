@@ -2,8 +2,9 @@ import React, { useRef } from 'react'
 import { CircleX, User } from 'lucide-react';
 import {Link} from 'react-router-dom'
 import axios from 'axios';
+
 const AddCity = () => {
-  const url='https://6703ae46ab8a8f89273132cf.mockapi.io/AddCity';
+  
   const coverimgRef=useRef(null);
   const ratingsRef=useRef(null);
   const cityimageRef=useRef(null);
@@ -13,6 +14,7 @@ const AddCity = () => {
   const latref=useRef(null);
   const lonref=useRef(null);
   const handleclick=(e)=>{
+    const url = import.meta.env.VITE_ADD_CITY;
     e.preventDefault();
     const obj={
       coverimg:coverimgRef.current.value,
@@ -31,7 +33,7 @@ const AddCity = () => {
     }
   }
   const SendData=async(obj)=>{
-     const res=await axios.post(url,obj);
+     const res=await axios.post(url, obj);
      if(res.status===201)
      {
       alert("Data sent successfully");

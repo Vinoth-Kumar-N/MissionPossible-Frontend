@@ -3,13 +3,15 @@ import { CircleX } from "lucide-react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+
 const addhotels = () => {
-  const url = "https://67038440bd7c8c1ccd41bc90.mockapi.io/hotel";
+  const url = import.meta.env.VITE_ADD_HOTEL;
   const ratingsRef = useRef(null);
   const hotelnameRef = useRef(null);
   const hotelimageRef = useRef(null);
   const priceRef = useRef(null);
   const descriptionRef = useRef(null);
+
   const handleclick = (e) => {
     e.preventDefault();
     const obj = {

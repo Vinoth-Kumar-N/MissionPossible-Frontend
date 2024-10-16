@@ -9,11 +9,8 @@ const Currency = () => {
   const [output, setOutput] = useState();
 
   const getRates = async () => {
-    // Fetch the data from API
-    const response = await fetch(
-      "https://v6.exchangerate-api.com/v6/59d560835c4e8d4f996adc83/latest/USD"
-    ).then((response) => response.json());
-
+    const url = import.meta.env.CURRENCY_API;
+    const response = await fetch(url).then((response) => response.json());
     // Save the rates in the state
     if (response.result === "success") {
       setRates(response.conversion_rates);
