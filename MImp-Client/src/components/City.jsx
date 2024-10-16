@@ -13,7 +13,7 @@ const City = (props) => {
   return (
     <>
       <div className="flex flex-col gap-10 p-2">
-        <Weather name={data.cityname}/>
+        <Weather name={data.cityimg}/>
         <CityDetails data={data} />
         <Map lat={Number(data.lat)} lng={Number(data.lon)} />
         <Hotels />
@@ -24,7 +24,7 @@ const City = (props) => {
         <div className="justify-center items-center flex">
           <button className="box">Purchase</button>
         </div>
-        <Air name={data.cityname}/>
+        <Air name={data.cityimg}/>
         <Currency />
       </div>
     </>

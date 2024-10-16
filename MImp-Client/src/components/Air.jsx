@@ -11,7 +11,7 @@ const Air = (props) => {
       setAirData(res.data);
       setLoading(false);
     } catch (error) {
-      alert("Error fetching data");
+      // alert("Error fetching data");
       setLoading(false);
     }
   };
