@@ -48,7 +48,7 @@ const Card = (props) => {
       </div>
 
       <div className="p-3">
-        <div className="text-black font-bold text-lg">{props.data.cityimg}</div>
+        <div className="text-black font-bold text-lg">{props.data.cityname}</div>
         <div className="flex justify-between items-center mt-2">
           <div className="text-black text-xl font-semibold">
             ₹ {props.data.price}

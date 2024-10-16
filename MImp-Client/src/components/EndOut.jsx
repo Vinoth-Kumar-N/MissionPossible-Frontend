@@ -44,7 +44,7 @@ const EndOut = () => {
     };
 
     const filteredData = Data.filter(item => 
-        item.name.toLowerCase().includes(searchTerm.toLowerCase())
+        item.cityname.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     return (

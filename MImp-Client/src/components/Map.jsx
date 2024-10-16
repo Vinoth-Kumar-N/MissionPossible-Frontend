@@ -32,7 +32,7 @@ function Map(props) {
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={8}
+        zoom={6}
         onLoad={onLoad}
         onUnmount={onUnmount}
       >

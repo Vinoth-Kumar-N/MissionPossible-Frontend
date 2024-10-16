@@ -8,7 +8,7 @@ const CityDetails = (props) => {
         {/* City Image Section */}
         <div className="w-full lg:w-1/3 bg-gray-100 flex justify-center items-center p-4">
           <img
-            src={props.data.cityname}
+            src={props.data.cityimg}
             alt="City Image"
             className="h-64 w-full object-cover rounded-lg shadow-md"
           />
@@ -19,7 +19,7 @@ const CityDetails = (props) => {
           <div className="mb-6">
             {/* City Name */}
             <h1 className="text-2xl font-bold text-gray-800 mb-2 text-center lg:text-left">
-              {props.data.cityimg}
+              {props.data.cityname}
             </h1>
 
             {/* Description */}
