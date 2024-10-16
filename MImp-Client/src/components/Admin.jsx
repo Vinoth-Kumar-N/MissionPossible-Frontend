@@ -1,13 +1,10 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 const Admin = () => {
   const navigate = useNavigate();
-
   const handleCardClick = () => {
     navigate('/endoutput', { state: { admin: true } });
   };
-
   return (
     <div className="w-screen h-screen flex flex-col items-center justify-center bg-gradient-to-r from-blue-500 to-purple-500">
       <div className="absolute inset-0 bg-black opacity-30"></div>
