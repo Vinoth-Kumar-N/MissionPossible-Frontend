@@ -13,7 +13,7 @@ const City = (props) => {
   return (
     <>
       <div className="flex flex-col gap-10 p-2">
-        <Weather name={data.cityimg}/>
+        <Weather name={data.cityname}/>
         <CityDetails data={data} />
         <Map lat={Number(data.lat)} lng={Number(data.lon)} />
         <Hotels />
