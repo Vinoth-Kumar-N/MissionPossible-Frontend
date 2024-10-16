@@ -92,7 +92,7 @@ const Register = () => {
               <img src={Google} alt="Google" /> Continue with Google
             </button>
             <div className="">
-              <h1 className="text-sm text-red-600">{statusMessage}</h1>
+              <h1 className="text-[1rem] text-red-900 text-center">{statusMessage}</h1>
             </div>
           </form>
         </div>

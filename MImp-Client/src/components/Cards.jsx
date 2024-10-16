@@ -3,7 +3,7 @@ import Featurescard from "./Featurescard";
 import axios from "axios";
 
 const Cards = () => {
-  const url = "https://6703ae46ab8a8f89273132cf.mockapi.io/AddFeatures";
+  const url = import.meta.env.VITE_ADD_FEATURES;
   const [data, setData] = useState([]);
 
   const FetchData = async () => {

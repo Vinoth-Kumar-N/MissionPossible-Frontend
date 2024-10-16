@@ -2,13 +2,15 @@ import React, { useEffect, useRef } from "react";
 import { CircleX } from "lucide-react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+
 export const AddFeature = () => {
   const imgref = useRef(null);
   const dateref = useRef(null);
   const descriptionref = useRef(null);
   const nameref = useRef(null);
-  const url = "https://6703ae46ab8a8f89273132cf.mockapi.io/AddFeatures";
+
   const handleclick = (e) => {
+    const url = import.meta.env.VITE_ADD_FEATURES;
     e.preventDefault();
     const obj = {
       imageurl: imgref.current.value,

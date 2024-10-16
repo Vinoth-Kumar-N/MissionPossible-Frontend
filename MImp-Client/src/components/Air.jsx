@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 const Air = (props) => {
   const [airData, setAirData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const url =`https://api.waqi.info/feed/${'India'}/?token=06d9e59247ee800a9f8bcb8fd56802ca54a41dbc`;
+  const url = import.meta.env.VITE_AIR_API_URL;
   const FetchData = async () => {
     try {
       const res = await axios.get(url);

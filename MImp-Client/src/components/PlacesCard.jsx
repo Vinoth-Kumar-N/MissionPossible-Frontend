@@ -5,7 +5,7 @@ const PlacesCard = () => {
   const [placeslist, setplaceslist] = useState([]);
 
   useEffect(() => {
-    const url = "https://67038440bd7c8c1ccd41bc90.mockapi.io/places";
+    const url = import.meta.env.VITE_PLACES;
     axios
       .get(url)
       .then((response) => {
