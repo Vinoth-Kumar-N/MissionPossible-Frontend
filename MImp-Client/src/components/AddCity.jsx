@@ -88,6 +88,7 @@ const AddCity = () => {
                     
                     <button type="submit" className="h-12 bg-blue-500 rounded-md w-full text-white p-2 font-serif hover:bg-blue-600">Add</button>
                 </form>
+                <a className="text-blue-800 mt-4"href="https://www.latlong.net/">Click me for latitude & longitude</a>
             </div>
         </div>
     );
