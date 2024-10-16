@@ -1,11 +1,22 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import Card from './Card';
 import axios from 'axios';
+import { Loader } from 'lucide-react';
 
 const EndOut = () => {
     const url = 'https://6703ae46ab8a8f89273132cf.mockapi.io/AddCity';
-    
+    const location = useLocation();
+    const { admin } = location.state || {};
+
+    useEffect(() => {
+        if (admin !== undefined) {
+            alert(`Admin status: ${admin}`);
+        }
+    }, [admin]);
+
     const [Data, setData] = useState([]);
+    const [Loading, setLoading] = useState(true);
 
     const FetchData = async () => {
         try {
@@ -18,6 +29,8 @@ const EndOut = () => {
             }
         } catch (error) {
             alert("Error occurred: " + error.message);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -26,6 +39,13 @@ const EndOut = () => {
     }, []);
 
     return (
+        <>
+        {
+        Loading ? (
+        <div className='w-screen h-screen flex justify-center items-center'>
+            <Loader className="animate-spin" />
+        </div>
+        ) : (
         <div className="p-4">
             <form className="flex items-center rounded-full border-2 border-transparent focus:outline-none focus:border-blue-500 placeholder-gray-400 transition-all duration-300 shadow-md mb-4">
                 <button type="submit">
@@ -76,6 +96,7 @@ const EndOut = () => {
                             key={item.id}
                             className="w-full m-2 sm:w-1/2 md:w-1/3 lg:w-1/4 p-2"
                             data={item}
+                            admin={admin}
                         />
                     ))
                 ) : (
@@ -83,6 +104,9 @@ const EndOut = () => {
                 )}
             </div>
         </div>
+        )
+        }
+        </>
     );
 };
 
