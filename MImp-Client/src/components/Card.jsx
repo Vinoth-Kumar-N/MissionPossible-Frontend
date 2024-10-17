@@ -19,7 +19,7 @@ const Card = (props) => {
     try {
       const Del = await axios.delete(url);
       alert(`Deleted! Status: ${Del.status}`);
-      window.location.reload();
+      // window.location.reload();
     } catch (e) {
       alert('Error deleting the item.');
     }
