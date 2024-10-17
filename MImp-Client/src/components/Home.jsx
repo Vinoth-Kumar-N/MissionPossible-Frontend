@@ -38,7 +38,7 @@ const Home = () => {
             </p>
           </div>
           <Link to={"/register"}>
-            <div className="mt-4 w-[8rem] h-[3rem] bg-yellow-500 text-white rounded-md flex justify-center items-center hover:bg-yellow-600 transition duration-300 animate-bounce">
+            <div className="mt-4 w-[8rem] h-[3rem] bg-yellow-500 text-white rounded-md flex justify-center items-center hover:bg-yellow-600 transition duration-300">
               Get Started
             </div>
           </Link>
