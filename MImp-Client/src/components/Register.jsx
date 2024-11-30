@@ -2,20 +2,21 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Google from '../assets/img/google.png';
 import { useState, useRef } from 'react';
-import { RegisUser } from '../services/api';
+import { RegisUser } from '../services/AuthServices';
 import { CircleX } from 'lucide-react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Spin } from 'antd';
 
 const Register = () => {
   const [statusMessage, setstatusMess] = useState('');
   const navigate = useNavigate();
+  const [Loading, setLoading] = useState(false);
 
   const nameref = useRef(null);
   const emailref = useRef(null);
   const phoneref = useRef(null);
   const passwordref = useRef(null);
-  const repasswordref = useRef(null);
 
   const handleReg = async (e) => {
     e.preventDefault();
@@ -27,8 +28,7 @@ const Register = () => {
       name: nameref.current.value,
       email: emailref.current.value,
       phone: phoneref.current.value,
-      password: passwordref.current.value,
-      repassword: repasswordref.current.value
+      password: passwordref.current.value
     };
     if (!emailRegex.test(emailref.current.value)) {
       toast.error("Invalid Credentials");
@@ -45,11 +45,11 @@ const Register = () => {
     //   setstatusMess("Password must contain at least one digit, one lowercase, and one uppercase letter, and must be between 6 and 20 characters");
     //   return;
     // }
-    if (passwordref.current.value !== repasswordref.current.value) {
-      toast.error("Invalid Credentials");
-      setstatusMess("Passwords do not match");
-      return;
-    }
+    // if (passwordref.current.value !== repasswordref.current.value) {
+    //   toast.error("Invalid Credentials");
+    //   setstatusMess("Passwords do not match");
+    //   return;
+    // }
 
     try {
       const res = await RegisUser(data);
@@ -79,22 +79,24 @@ const Register = () => {
             <CircleX onClick={() => navigate('/')} />
           </div>
 
-          <form onSubmit={handleReg} className="flex flex-col justify-center w-[80%] h-[80%] rounded-2xl items-center gap-4">
-            <h1 className="text-blue-600 font-serif text-2xl font-medium">Register Form</h1>
-            <input type="text" ref={nameref} className="font-serif p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Name" required />
-            <input type="email" ref={emailref} className="p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Email" required />
-            <input type="number" ref={phoneref} className="p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Phone" required />
-            <input type="password" ref={passwordref} className="font-serif p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Password" required />
-            <input type="password" ref={repasswordref} className="font-serif p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Re-enter Password" required />
-            <button type="submit" className="h-12 bg-blue-500 rounded-md w-full text-white p-2 font-serif hover:bg-blue-600">Register</button>
-            <p>Already have an account? <Link to='/login' className='text-blue-500 border-blue-500'> Login Here</Link></p>
-            <button type="button" className="h-12 bg-slate-50 rounded-full w-[80%] p-2 font-serif flex justify-center gap-4 items-center">
-              <img src={Google} alt="Google" /> Continue with Google
-            </button>
-            <div className="">
-              <h1 className="text-[1rem] text-red-900 text-center">{statusMessage}</h1>
-            </div>
-          </form>
+          {Loading ? <Spin /> : (
+            <form onSubmit={handleReg} className="flex flex-col justify-center w-[80%] h-[80%] rounded-2xl items-center gap-4">
+              <h1 className="text-blue-600 font-serif text-2xl font-medium">Register Form</h1>
+              <input type="text" ref={nameref} className="font-serif p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Name" required />
+              <input type="email" ref={emailref} className="p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Email" required />
+              <input type="number" ref={phoneref} className="p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Phone" required />
+              <input type="password" ref={passwordref} className="font-serif p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Password" required />
+              {/* <input type="password" ref={repasswordref} className="font-serif p-2 rounded-md w-full outline-none focus:border-2 focus:border-r-4 focus:border-b-4 border-blue-500 shadow-inner" placeholder="Re-enter Password" required /> */}
+              <button type="submit" className="h-12 bg-blue-500 rounded-md w-full text-white p-2 font-serif hover:bg-blue-600">Register</button>
+              <p>Already have an account? <Link to='/login' className='text-blue-500 border-blue-500'> Login Here</Link></p>
+              <button type="button" className="h-12 bg-slate-50 rounded-full w-[80%] p-2 font-serif flex justify-center gap-4 items-center">
+                <img src={Google} alt="Google" /> Continue with Google
+              </button>
+              <div className="">
+                <h1 className="text-[1rem] text-red-900 text-center">{statusMessage}</h1>
+              </div>
+            </form>
+          )}
         </div>
       </div>
     </>

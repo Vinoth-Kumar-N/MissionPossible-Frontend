@@ -1,10 +1,12 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import { User2, CircleX, Menu } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { logout } from "../services/AuthServices";
 
 const Navbar = () => {
   const url = import.meta.env.VITE_CONTACT_API;
+  const navigate = useNavigate();
 
   const nameRef = useRef("");
   const emailRef = useRef("");
@@ -47,6 +49,10 @@ const Navbar = () => {
     }
   };
 
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  }
   const handleSidebarClose = () => {
     setSidebarOpen(false);
   };
@@ -72,6 +78,9 @@ const Navbar = () => {
             </li>
             <li className="rounded-md" onClick={() => setVisible(true)}>
               Contact
+            </li>
+            <li className="rounded-md cursor-pointer" onClick={handleLogout}>
+              Logout
             </li>
             <li className="rounded-md">
               <Link to={"/adminlogin"}>
@@ -114,6 +123,7 @@ const Navbar = () => {
             >
               Contact
             </li>
+            <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white" onClick={handleLogout} >Logout</li>
             <Link to="/adminlogin" onClick={handleSidebarClose}>
               <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white">
                 <div className="flex flex-col">
