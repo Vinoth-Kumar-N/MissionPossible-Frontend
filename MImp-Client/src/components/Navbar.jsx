@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { logout, isAuthenticated } from "../services/AuthServices";
 import { getUserdata } from "../services/storageServices";
+import { HiMenuAlt1, HiMenuAlt3 } from "react-icons/hi";
+import { FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
   const url = import.meta.env.VITE_CONTACT_API;
@@ -55,6 +57,7 @@ const Navbar = () => {
     logout();
     setSidebarOpen(false);
     setLoggedout(true);
+    scrollTo(0, 0);
     navigate('/');
   }
   const handleSidebarClose = () => {
@@ -74,68 +77,81 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="sm:hidden p-3 cursor-pointer" onClick={() => setSidebarOpen(true)}>
-          <Menu className="text-white" size={30} />
+          {sidebarOpen ? <HiMenuAlt1 size={30} /> : <HiMenuAlt3 size={30} />}
         </div>
         <div className="hidden sm:block">
-          <ul className="flex gap-8 mr-10">
-            <li className="rounded-md">
+
+          <ul className="flex gap-8 mr-10 items-center">
+            <li className="rounded-md transition-all ease-in-out duration-700 hover:text-blue-950">
               <Link to={"/"} >Home</Link>
             </li>
-            <li className="rounded-md">
+            <li className="rounded-md transition-all ease-in-out duration-700 hover:text-blue-950">
               <Link to={"/aboutus"}>About Us</Link>
             </li>
             {getUserdata() ? <>
-              <li className="rounded-md cursor-pointer" onClick={() => setVisible(true)}>
+              <li className="h-[40px] rounded-md bg-purple-500 px-4 py-1 bg-gradient-to-r hover:from-slate-500 to-slate-50 cursor-pointer" onClick={() => setVisible(true)}>
                 Book Now
               </li>
             </> : <>
-              <li className="rounded-md">
+              <li className="rounded-md transition-all ease-in-out duration-700 hover:text-blue-950">
                 <Link to={"/register"}>For Booking</Link>
               </li>
             </>
             }
-            {!isLoggout && <li className="rounded-md cursor-pointer" onClick={() => navigate('/endoutput')}> Best Places</li>}
-            {!isLoggout && <li className="rounded-md cursor-pointer" onClick={handleLogout}>Logout </li>}
+            {!isLoggout && <li className="rounded-md cursor-pointer transition-all ease-in-out duration-700 hover:text-blue-950" onClick={() => navigate('/endoutput')}> Best Places</li>}
+            {!isLoggout && <li className="rounded-md cursor-pointer transition-all ease-in-out duration-700 hover:text-blue-950" onClick={handleLogout}>Logout </li>}
 
-            <li className="rounded-md">
-              <Link to={"/adminlogin"}>
-                <User2 className="rounded-full" />
-              </Link>
-            </li>
+            {!isLoggout && <li className="rounded-md flex flex-col items-center">
+              <FaUserCircle size={28} className="rounded-full" />
+              <span className=" w-auto z-20 text-center">
+                Hello! {getUserdata() ? getUserdata().user.name : "Guest"}
+              </span>
+            </li>}
+
           </ul>
+
         </div>
 
         {sidebarOpen && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={handleSidebarClose}></div>
+          <div className="fixed inset-0 bg-black bg-opacity-0 z-40" onClick={handleSidebarClose}></div>
         )}
 
         <div
-          className={`fixed top-0 left-0 h-full w-[70%] bg-slate-700 p-6 z-50 transform transition-transform duration-300 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
+          className={`fixed top-0 left-0 h-full w-[70%] bg-gradient-to-b from-secondary to-primary p-6 z-50 transform transition-transform duration-300 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
             } lg:hidden`}
         >
           <div className="flex justify-between mb-8">
-            <p className="font-bold text-xl text-white">TravelMate</p>
-            <CircleX className="text-red-500 cursor-pointer" onClick={handleSidebarClose} size={30} />
+            <p className="font-bold text-3xl text-white">TravelMate</p>
+            <CircleX className="text-primary cursor-pointer" onClick={handleSidebarClose} size={30} />
           </div>
+
           <ul className="flex flex-col gap-6">
+            {!isLoggout && <li className="rounded-md flex flex-col items-center">
+              <FaUserCircle size={45} className="rounded-full text-lg" />
+              <span className=" w-auto z-20 text-center">
+                Hello! {getUserdata() ? getUserdata().user.name : "Guest"}
+              </span>
+            </li>}
             {getUserdata() ? <>
-              <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white border-b border-white" onClick={() => {handleSidebarClose(); setVisible(true)}}>
-                Book Now
+              <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white border-b border-white" onClick={() => { handleSidebarClose(); setVisible(true) }}>
+                Book now
               </li>
             </> : <>
-              <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white border-b border-white" onClick={handleSidebarClose} >
-                <Link to={"/register"}>For Booking</Link>
-              </li>
-
+              <Link to={"/register"}>
+                <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white/95 border-b border-white" onClick={handleSidebarClose} >
+                  For Booking
+                </li>
+              </Link>
             </>}
 
+
             <Link to="/aboutus" onClick={handleSidebarClose}>
-              <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white border-b border-white">
+              <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white/95 border-b border-white">
                 About Us
               </li>
             </Link>
             <li
-              className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white border-b border-white"
+              className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white/95 border-b border-white"
               onClick={() => {
                 setVisible(true);
                 handleSidebarClose();
@@ -143,23 +159,24 @@ const Navbar = () => {
             >
               Contact
             </li>
-            {!isLoggout && <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white border-b border-white" onClick={() => {handleSidebarClose(); navigate('/endoutput')}}> Best Places</li>}
-            {!isLoggout && <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white border-b border-white" onClick={handleLogout}>Logout </li>}
+            {!isLoggout && <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white/95 border-b border-white" onClick={() => { handleSidebarClose(); navigate('/endoutput') }}> Best Places</li>}
+            {!isLoggout && <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white/95 border-b border-white" onClick={handleLogout}>Logout </li>}
 
-            <Link to="/adminlogin" onClick={handleSidebarClose}>
-              <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white">
+            {isLoggout && <Link to="/adminlogin" onClick={handleSidebarClose}>
+              <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white/90">
                 <div className="flex flex-col">
                   <User2 className="rounded-full" /> Admin Login
                 </div>
               </li>
-            </Link>
+            </Link>}
           </ul>
+
         </div>
       </div >
 
       {visible && (
-        <div className="h-screen w-screen fixed top-0 left-0 flex justify-center items-center z-50">
-          <div className="w-[90%] md:w-[40%] px-[3%] py-[2%] rounded-2xl bg-white shadow-lg">
+        <div className="h-screen w-screen fixed top-0 left-0 flex justify-center items-center z-50 bg-white/75">
+          <div className="w-[90%] md:w-[40%] px-[3%] py-[2%] rounded-2xl bg-white shadow-2xl shadow-black">
             <div className="px-[3%] flex justify-between items-center mb-2 top-0">
               <h2 className="text-2xl font-semibold text-[#657cba]">Contact Us</h2>
               <CircleX className="text-red-500 cursor-pointer" onClick={() => setVisible(false)} />

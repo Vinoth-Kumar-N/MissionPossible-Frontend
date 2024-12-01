@@ -20,12 +20,14 @@ const Cards = () => {
     }
   };
 
+
   useEffect(() => {
     FetchData();
+    window.scrollTo(0,0);
   }, []);
 
   return (
-    <div className="w-full h-screen flex flex-row gap-4 overflow-x-auto overflow-y-hidden p-5 m-10">
+    <div className="w-full h-[500px] flex flex-row gap-4 overflow-x-auto overflow-y-hidden p-5 m-5">
       {data.map((item, index) => (
         <div key={index} className="flex-shrink-0 w-[300px]">
           <Featurescard data={item} />

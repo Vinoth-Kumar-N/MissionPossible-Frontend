@@ -10,7 +10,7 @@ const CityDetails = (props) => {
           <img
             src={props.data.cityimg}
             alt="City Image"
-            className="h-64 w-full object-cover rounded-lg shadow-md"
+            className="h-64 mx-auto w-full object-cover transition-all duration-700 hover:-skew-x-1 hover:scale-110 rounded-lg shadow-md "
           />
         </div>
 

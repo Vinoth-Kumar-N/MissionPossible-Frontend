@@ -7,7 +7,14 @@ import Air from "./Air";
 import Currency from "./Currency";
 import PlacesCard from "./PlacesCard";
 import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+
+
 const City = (props) => {
+
+  useEffect(()=>{
+    window.scrollTo(0,0);
+  })
   const location = useLocation();
   const { data } = location.state || {};
   return (

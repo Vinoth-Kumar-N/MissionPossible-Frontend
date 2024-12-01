@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Heart, Star, Trash2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -28,6 +28,9 @@ const Card = (props) => {
   const handleCardClick = () => {
     navigate(`/city/`, { state: { data: props.data } });
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  })
 
   return (
     <div
@@ -38,7 +41,7 @@ const Card = (props) => {
         <img
           src={props.data.coverimg}
           alt="images"
-          className="w-full h-[200px] object-cover"
+          className="w-full h-[200px] object-cover transition-all duration-500 hover:scale-110"
         />
         <div className="bg-white bg-opacity-70 absolute bottom-3 left-2 px-2 py-1 rounded flex">
           <p className="text-black text-sm font-semibold flex space-x-1">

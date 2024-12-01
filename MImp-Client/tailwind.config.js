@@ -6,6 +6,11 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        montserrat: ['Montserrat', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
+        worksans: ['Work Sans', 'sans-serif'],
+      },
       colors: {
         primary: "#0287a8",
         secondary:"#00c3c7",

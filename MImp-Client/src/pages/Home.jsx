@@ -2,16 +2,31 @@ import React from "react";
 import { LucideStarHalf, Star } from "lucide-react";
 import Cards from "../components/Cards";
 import { Link } from "react-router-dom";
+import MainVideo from "../assets/vidoes/video1.mp4"; // Use correct path for the video file
 
 const Home = () => {
   return (
-    <div className="w-full min-h-screen bg-gradient-to-r from-green-900 to-blue-900 flex flex-col items-center">
+    <div className="w-full min-h-screen bg-gradient-to-r from-green-900 to-blue-900 flex flex-col items-center relative">
+      {/* Video Background */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src={MainVideo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
 
-      <div className="w-full h-[90vh] flex flex-col items-center justify-center bg-no-repeat bg-cover relative">
+      {/* Overlay Content */}
+      <div className="w-full h-[90vh] flex flex-col items-center justify-center bg-cover relative z-10">
         <div className="absolute inset-0 bg-black/30" />
-        <div className="relative z-10 flex flex-col items-center justify-center text-center font-bold backdrop-blur-md bg-white/20 rounded-lg p-6 shadow-lg">
-          <h1 className="text-3xl sm:text-4xl text-white">Tamil Nadu's Best</h1>
-          <h2 className="text-3xl sm:text-4xl text-white">Travel Itinerary Planner</h2>
+        <div className="relative z-10 flex flex-col items-center justify-center text-center font-bold backdrop-blur-md bg-white/20 rounded-lg p-6 shadow-lg m-6">
+
+          <h2 className="text-3xl sm:text-4xl text-white">Explore All corners of the World</h2>
           <div className="flex items-center space-x-1 mt-4">
             <div className="flex space-x-1">
               <Star color="orange" fill="orange" />
@@ -26,11 +41,8 @@ const Home = () => {
             <p className="text-2xl sm:text-4xl text-yellow-300 font-bold">
               Discover your Next Adventure with Us
             </p>
-            <p className="text-2xl sm:text-4xl text-white font-bold">
-              Itineraries at your Fingertips
-            </p>
-            <p className="text-base sm:text-lg text-[#e0e3fc]">
-              Your personal trip planner and travel curator, creating itineraries tailored to your interests.
+            <p className="text-base sm:text-lg text-white">
+              Your personal trip Mate and travel curator, provides Information tailored to your interests.
             </p>
           </div>
           <Link to={"/register"}>
@@ -38,14 +50,15 @@ const Home = () => {
               Get Started
             </div>
           </Link>
+
         </div>
       </div>
 
-      <div className="w-full flex flex-col items-center my-10">
-        <h2 className="text-2xl sm:text-3xl font-bold text-white">Happy Clients' Reviews</h2>
+      {/* Additional Content */}
+      <div className="w-full flex flex-col items-center mt-12 relative z-10">
+        <h2 className="text-2xl sm:text-3xl font-bold text-white">Happy User's Review</h2>
       </div>
-
-      <div className="w-full h-full overflow-x-auto p-5 sm:p-10 flex space-x-4">
+      <div className="w-full h-auto overflow-x-auto p-5 sm:p-10 flex space-x-4 relative z-10">
         <Cards />
       </div>
     </div>

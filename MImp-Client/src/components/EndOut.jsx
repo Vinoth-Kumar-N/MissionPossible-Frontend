@@ -13,6 +13,7 @@ const EndOut = () => {
         if (admin !== undefined) {
             // alert(`Admin status: ${admin}`);
         }
+        window.scrollTo(0, 0);
     }, [admin]);
 
     const [Data, setData] = useState([]);
