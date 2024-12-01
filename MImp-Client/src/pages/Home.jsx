@@ -1,15 +1,11 @@
 import React from "react";
 import { LucideStarHalf, Star } from "lucide-react";
-import Cards from "./Cards";
+import Cards from "../components/Cards";
 import { Link } from "react-router-dom";
-import Footer from "./Footer";
-import Aero from '../assets/img/aero.gif';
 
 const Home = () => {
   return (
-    <div className="w-screen min-h-screen bg-gradient-to-r from-green-900 to-blue-900 flex flex-col items-center">
-
-      <img src={Aero} alt="Aero Animation" className="absolute top-0 left-0 w-[50vw] h-[30vh]" />
+    <div className="w-full min-h-screen bg-gradient-to-r from-green-900 to-blue-900 flex flex-col items-center">
 
       <div className="w-full h-[90vh] flex flex-col items-center justify-center bg-no-repeat bg-cover relative">
         <div className="absolute inset-0 bg-black/30" />
@@ -52,7 +48,6 @@ const Home = () => {
       <div className="w-full h-full overflow-x-auto p-5 sm:p-10 flex space-x-4">
         <Cards />
       </div>
-      <Footer />
     </div>
   );
 };

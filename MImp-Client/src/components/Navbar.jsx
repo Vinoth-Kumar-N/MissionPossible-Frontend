@@ -1,12 +1,14 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { User2, CircleX, Menu } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { logout } from "../services/AuthServices";
+import { logout, isAuthenticated } from "../services/AuthServices";
+import { getUserdata } from "../services/storageServices";
 
 const Navbar = () => {
   const url = import.meta.env.VITE_CONTACT_API;
   const navigate = useNavigate();
+  const [isLoggout, setLoggedout] = useState(!isAuthenticated());
 
   const nameRef = useRef("");
   const emailRef = useRef("");
@@ -51,37 +53,50 @@ const Navbar = () => {
 
   const handleLogout = () => {
     logout();
+    setSidebarOpen(false);
+    setLoggedout(true);
     navigate('/');
   }
   const handleSidebarClose = () => {
     setSidebarOpen(false);
   };
+  useEffect(() => {
+    setLoggedout(!isAuthenticated());
+  }, [isLoggout]);
+
 
   return (
     <>
-      <div className="w-full h-[4rem] text-lg text-white bg-slate-500 shadow-md flex justify-between items-center rounded-b-lg sticky top-0 z-30">
+      <div className="w-[100%] h-[4rem] text-lg text-white bg-gradient-to-r from-primary to-secondary shadow-md flex justify-between items-center rounded-b-lg sticky top-0 z-30">
         <div className="flex items-center">
-          <Link to={"/"} className="p-3 rounded-md">
-            <p className="font-bold">Trip Planner</p>
+          <Link to={"/"} onClick={() => window.scrollTo(0, 0)} className="p-3 rounded-md">
+            <p className="font-bold text-3xl ml-7">TravelMate</p>
           </Link>
         </div>
-        <div className="lg:hidden p-3 cursor-pointer" onClick={() => setSidebarOpen(true)}>
+        <div className="sm:hidden p-3 cursor-pointer" onClick={() => setSidebarOpen(true)}>
           <Menu className="text-white" size={30} />
         </div>
-        <div className="hidden lg:flex">
+        <div className="hidden sm:block">
           <ul className="flex gap-8 mr-10">
             <li className="rounded-md">
-              <Link to={"/register"}>For Booking</Link>
+              <Link to={"/"} >Home</Link>
             </li>
             <li className="rounded-md">
               <Link to={"/aboutus"}>About Us</Link>
             </li>
-            <li className="rounded-md" onClick={() => setVisible(true)}>
-              Contact
-            </li>
-            <li className="rounded-md cursor-pointer" onClick={handleLogout}>
-              Logout
-            </li>
+            {getUserdata() ? <>
+              <li className="rounded-md cursor-pointer" onClick={() => setVisible(true)}>
+                Book Now
+              </li>
+            </> : <>
+              <li className="rounded-md">
+                <Link to={"/register"}>For Booking</Link>
+              </li>
+            </>
+            }
+            {!isLoggout && <li className="rounded-md cursor-pointer" onClick={() => navigate('/endoutput')}> Best Places</li>}
+            {!isLoggout && <li className="rounded-md cursor-pointer" onClick={handleLogout}>Logout </li>}
+
             <li className="rounded-md">
               <Link to={"/adminlogin"}>
                 <User2 className="rounded-full" />
@@ -95,20 +110,25 @@ const Navbar = () => {
         )}
 
         <div
-          className={`fixed top-0 left-0 h-full w-[70%] bg-slate-700 p-6 z-50 transform transition-transform duration-300 ${
-            sidebarOpen ? "translate-x-0" : "-translate-x-full"
-          } lg:hidden`}
+          className={`fixed top-0 left-0 h-full w-[70%] bg-slate-700 p-6 z-50 transform transition-transform duration-300 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
+            } lg:hidden`}
         >
           <div className="flex justify-between mb-8">
-            <p className="font-bold text-xl text-white">Trip Planner</p>
+            <p className="font-bold text-xl text-white">TravelMate</p>
             <CircleX className="text-red-500 cursor-pointer" onClick={handleSidebarClose} size={30} />
           </div>
           <ul className="flex flex-col gap-6">
-            <Link to="/register" onClick={handleSidebarClose}>
-              <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white border-b border-white">
-                For Booking
+            {getUserdata() ? <>
+              <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white border-b border-white" onClick={() => {handleSidebarClose(); setVisible(true)}}>
+                Book Now
               </li>
-            </Link>
+            </> : <>
+              <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white border-b border-white" onClick={handleSidebarClose} >
+                <Link to={"/register"}>For Booking</Link>
+              </li>
+
+            </>}
+
             <Link to="/aboutus" onClick={handleSidebarClose}>
               <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white border-b border-white">
                 About Us
@@ -123,7 +143,9 @@ const Navbar = () => {
             >
               Contact
             </li>
-            <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white" onClick={handleLogout} >Logout</li>
+            {!isLoggout && <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white border-b border-white" onClick={() => {handleSidebarClose(); navigate('/endoutput')}}> Best Places</li>}
+            {!isLoggout && <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white border-b border-white" onClick={handleLogout}>Logout </li>}
+
             <Link to="/adminlogin" onClick={handleSidebarClose}>
               <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white">
                 <div className="flex flex-col">
@@ -133,7 +155,7 @@ const Navbar = () => {
             </Link>
           </ul>
         </div>
-      </div>
+      </div >
 
       {visible && (
         <div className="h-screen w-screen fixed top-0 left-0 flex justify-center items-center z-50">
@@ -219,7 +241,8 @@ const Navbar = () => {
             </form>
           </div>
         </div>
-      )}
+      )
+      }
     </>
   );
 };
