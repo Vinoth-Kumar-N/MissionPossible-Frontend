@@ -12,19 +12,24 @@ const About = () => {
       image: abi,
     },
     {
-      name: 'Ponnarasu A',
-      description: 'Ponnarasu is a talented full-stack developer who works on both the front-end and back-end of the project. He ensures that all components communicate seamlessly, handling everything from server-side logic to user interface integration. His ability to manage both sides of development makes him an integral part of the team.',
-      image: 'https://via.placeholder.com/150', // Placeholder for Ponnarasu's photo
-    },
-    {
       name: 'Vinoth Kumar N',
-      description: 'Vinoth is an expert back-end developer, focusing on building the server-side infrastructure and managing databases. He is responsible for creating efficient and secure APIs that power the travel planner. His attention to detail and optimization skills ensure the reliability and performance of the app\'s core functionality.',
+      description: (
+        <span>
+          Vinoth is an expert back-end developer, focusing on building the server-side infrastructure and managing databases. He is responsible for creating efficient and secure APIs that power the travel planner. His attention to detail and optimization skills ensure the reliability and performance of the app\'s core functionality.
+          Check out his portfolio at <a href="https://portfolio-seven-snowy-38.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-blue-500 underline"> Portfolio</a> to explore his work.
+        </span>
+      ),
       image: 'https://via.placeholder.com/150', // Placeholder for Vinoth's photo
     },
     {
       name: 'Jagadheesh B',
       description: 'Jagadheesh is a well-rounded full-stack developer who works on both the client-side and server-side of the application. His versatility allows him to contribute to all parts of the project, from design to deployment. His goal is to ensure that the platform is scalable and efficient for a growing user base.',
       image: 'https://via.placeholder.com/150', // Placeholder for Jagadheesh's photo
+    },
+    {
+      name: 'Ponnarasu A',
+      description: 'Ponnarasu is a talented full-stack developer who works on both the front-end and back-end of the project. He ensures that all components communicate seamlessly, handling everything from server-side logic to user interface integration. His ability to manage both sides of development makes him an integral part of the team.',
+      image: 'https://via.placeholder.com/150', // Placeholder for Ponnarasu's photo
     },
   ];
 
