@@ -121,7 +121,9 @@ const Navbar = () => {
             } lg:hidden`}
         >
           <div className="flex justify-between mb-8">
-            <p className="font-bold text-3xl text-white">TravelMate</p>
+            <Link to={"/"} onClick={() => window.scrollTo(0, 0)} className="p-3 rounded-md">
+              <p className="font-bold text-3xl">TravelMate</p>
+            </Link>
             <CircleX className="text-primary cursor-pointer" onClick={handleSidebarClose} size={30} />
           </div>
 

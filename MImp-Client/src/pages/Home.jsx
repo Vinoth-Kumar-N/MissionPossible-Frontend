@@ -5,22 +5,21 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import MainVideo from "../assets/vidoes/video1.mp4"; // Use correct path for the video file
-import { isAuthenticated, isTokenValid, logout } from "../services/AuthServices";
+import { isAuthenticated, logout } from "../services/AuthServices";
 import { getUserdata } from "../services/storageServices";
 
 const Home = () => {
-  const navi = useNavigate();
   const userData = getUserdata(); // Safely get user data
   const Token = userData?.token; // Use optional chaining to avoid errors
   console.log(Token);
 
-  useEffect(() => {
-    if (!Token || !isTokenValid(Token)) {
-      logout();
-      navi('/login');
-      toast.error('Session Expired. Please log in again.');
-    }
-  }, [Token]);
+  // useEffect(() => {
+  //   if (Token && !isTokenValid(Token)) {
+  //     logout();
+  //     navi('/');
+  //     toast.error('Session Expired. Please log in again.');
+  //   }
+  // }, [Token]);
 
   return (
     <>

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { getUserdata, removeUserdata } from '../services/storageServices';
+// import jwt_decode from 'jwt-decode'
 // const API = 'https://missionpossible-backend-6x8r.onrender.com';
              
 const API = 'http://localhost:1111';
@@ -12,21 +13,20 @@ const isAuthenticated = () => {
 }
 
 
-const isTokenValid = (token) => {
-    if (!token) {
-        return false;
-    }
-    try {
-        const decoded = jwt_decode(token);
-        const currTime = Math.floor(Date.now() / 1000);
-        return decoded.exp > currTime; 
-    } catch (error) {
-        return false;
-    }
-};
+// const isTokenValid = (token) => {
+//     try {
+//         const decoded = jwt_decode(token);
+//         const currTime = Math.floor(Date.now() / 1000);
+//         return decoded.exp > currTime; 
+//     } catch (error) {
+//         return false;
+//     }
+// };
+
+  
 
 const logout = () => {
     removeUserdata();
 }
 
-export { RegisUser, LoginUser, isAuthenticated, isTokenValid, logout };
+export { RegisUser, LoginUser, isAuthenticated, logout };
