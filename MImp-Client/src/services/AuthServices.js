@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { getUserdata, removeUserdata } from '../services/storageServices';
-const API = 'https://missionpossible-backend-6x8r.onrender.com';
+// const API = 'https://missionpossible-backend-6x8r.onrender.com';
              
-// const API = 'http://localhost:1111';
+const API = 'http://localhost:1111';
 
 const RegisUser = (data) => axios.post(`${API}/user/register`, data);
 const LoginUser = (data) => axios.post(`${API}/user/login`, data);
