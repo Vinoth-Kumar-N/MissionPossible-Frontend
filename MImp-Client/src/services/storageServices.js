@@ -3,7 +3,8 @@ export const storeUserdata = (data) =>{
 }
 
 export const getUserdata = () => {
-    return JSON.parse(localStorage.getItem('userdata'));
+    const data = localStorage.getItem('userdata');
+    return data ? JSON.parse(data) : null;
 }
 
 export const removeUserdata = () => {

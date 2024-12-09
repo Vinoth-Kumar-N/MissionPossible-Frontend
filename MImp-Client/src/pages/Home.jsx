@@ -9,15 +9,18 @@ import { isAuthenticated, isTokenValid, logout } from "../services/AuthServices"
 import { getUserdata } from "../services/storageServices";
 
 const Home = () => {
-  const token = getUserdata().token;
+  const userData = getUserdata(); // Safely get user data
+  const Token = userData?.token; // Use optional chaining to avoid errors
+  console.log(Token);
+
   useEffect(() => {
-    if (isTokenValid(token)) {
-      console.log('Token is valid');
-    } else {
-      toast.error('Session Expired');
+    if (!Token || !isTokenValid(Token)) {
+      toast.error('Session Expired. Please log in again.');
       logout();
+      window.location.href = '/login'; // Redirect to login page
     }
-  }, [])
+  }, [Token]);
+
   return (
     <>
       <ToastContainer />
