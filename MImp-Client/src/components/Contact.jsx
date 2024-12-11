@@ -177,10 +177,10 @@ const CreateTrip = () => {
           </div>
           <div className="w-full h-[8rem] flex flex-col items-center">
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-4 rounded-xl"
+              className="bg-blue-500 w-[8rem] hover:bg-blue-700 text-white font-bold py-4 px-4 rounded-xl"
               onClick={onGenerateTrip}
             >
-              Generate Trip
+              Send
             </button>
           </div>
         </div>

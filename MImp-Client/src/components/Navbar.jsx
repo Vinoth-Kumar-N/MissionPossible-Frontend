@@ -20,7 +20,6 @@ const Navbar = () => {
   const peopleRef = useRef("");
   const vacationRef = useRef("");
 
-  const [visible, setVisible] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -89,8 +88,8 @@ const Navbar = () => {
               <Link to={"/aboutus"}>About Us</Link>
             </li>
             {getUserdata() ? <>
-              <li className="h-[40px] rounded-md bg-purple-500 px-4 py-1 bg-gradient-to-r hover:from-slate-500 to-slate-50 cursor-pointer" onClick={() => setVisible(true)}>
-                Book Now
+              <li className="h-[40px] rounded-md bg-purple-500 px-4 py-1 bg-gradient-to-r hover:from-slate-500 to-slate-50 cursor-pointer" onClick={() =>setVisible(true)}>
+                <Link to={"/contact"}>Book Now</Link>
               </li>
             </> : <>
               <li className="rounded-md transition-all ease-in-out duration-700 hover:text-blue-950">
@@ -176,7 +175,7 @@ const Navbar = () => {
         </div>
       </div >
 
-      {visible && (
+      {/* {visible && (
         <div className="h-screen w-screen fixed top-0 left-0 flex justify-center items-center z-50 bg-white/75">
           <div className="w-[90%] md:w-[40%] px-[3%] py-[2%] rounded-2xl bg-white shadow-2xl shadow-black">
             <div className="px-[3%] flex justify-between items-center mb-2 top-0">
@@ -261,7 +260,7 @@ const Navbar = () => {
           </div>
         </div>
       )
-      }
+      } */}
     </>
   );
 };

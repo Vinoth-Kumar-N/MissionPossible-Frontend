@@ -16,8 +16,10 @@ const Home = () => {
     if (Token != null && isTokenValid(Token)) {
       console.log('Token is valid');
     } else {
+      if(Token != null)
       toast.error('Session Expired');
       logout();
+      setLoggedout(true);
     }
   }, [])
   useEffect(() => {
@@ -65,11 +67,11 @@ const Home = () => {
                 Your personal trip Mate and travel curator, provides Information tailored to your interests.
               </p>
             </div>
-            {isAuthenticated() ? (
+            {!isLoggout ? (
               <Link to={"/endoutput"}>
                 <div className="mt-4 w-[8rem] h-[3rem] bg-yellow-500 text-white rounded-md flex justify-center items-center hover:bg-yellow-600 transition duration-300">
                   Search now
-                </div>
+                </div>  
               </Link>
             ) : (
               <Link to={"/register"}>

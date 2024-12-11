@@ -42,7 +42,7 @@ const Login = () => {
         toast.success('Login Successful');
         setLoading(false);
         setTimeout(() => {
-          navigate('/trip');
+          navigate('/endoutput');
         }, 2000);
       }
     } catch (error) {
