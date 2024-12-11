@@ -5,11 +5,12 @@ import { Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import MainVideo from "../assets/vidoes/video1.mp4"; // Use correct path for the video file
-import { isAuthenticated,isTokenValid, logout } from "../services/AuthServices";
+import { isAuthenticated,isTokenValid} from "../services/AuthServices";
 import { getUserdata } from "../services/storageServices";
+import { useAuth } from "../Context/AuthContext";
 
 const Home = () => {
-  const [isLoggout, setLoggedout] = useState(!isAuthenticated());
+  const {isLoggedOut, logout} = useAuth();
   const Token = getUserdata()?.token;
   console.log(isTokenValid(Token));
   useEffect(() => {
@@ -19,12 +20,9 @@ const Home = () => {
       if(Token != null)
       toast.error('Session Expired');
       logout();
-      setLoggedout(true);
     }
-  }, [])
-  useEffect(() => {
-    setLoggedout(!isAuthenticated());
-  }, [isLoggout]);
+  }, [isLoggedOut])
+
   return (
     <>
       <ToastContainer />
@@ -67,7 +65,7 @@ const Home = () => {
                 Your personal trip Mate and travel curator, provides Information tailored to your interests.
               </p>
             </div>
-            {!isLoggout ? (
+            {!isLoggedOut ? (
               <Link to={"/endoutput"}>
                 <div className="mt-4 w-[8rem] h-[3rem] bg-yellow-500 text-white rounded-md flex justify-center items-center hover:bg-yellow-600 transition duration-300">
                   Search now

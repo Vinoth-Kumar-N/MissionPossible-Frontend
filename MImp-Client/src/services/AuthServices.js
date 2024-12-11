@@ -23,10 +23,4 @@ const isTokenValid = (token) => {
     }
 };
 
-  
-
-const logout = () => {
-    removeUserdata();
-}
-
-export { RegisUser, LoginUser, isAuthenticated,isTokenValid, logout };
+export { RegisUser, LoginUser, isAuthenticated,isTokenValid};

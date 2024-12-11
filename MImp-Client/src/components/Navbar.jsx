@@ -2,15 +2,17 @@ import { useState, useRef, useEffect } from "react";
 import { User2, CircleX, Menu } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { logout, isAuthenticated } from "../services/AuthServices";
-import { getUserdata } from "../services/storageServices";
+import {getUserdata} from '../services/storageServices.js'
+import { isAuthenticated } from "../services/AuthServices";
 import { HiMenuAlt1, HiMenuAlt3 } from "react-icons/hi";
 import { FaUserCircle } from "react-icons/fa";
+import { useAuth } from '../Context/AuthContext'
 
 const Navbar = () => {
+  const { isLoggedOut, logout } = useAuth();
   const url = import.meta.env.VITE_CONTACT_API;
   const navigate = useNavigate();
-  const [isLoggout, setLoggedout] = useState(!isAuthenticated());
+  // const [isLoggout, setLoggedout] = useState(!isAuthenticated());
 
   const nameRef = useRef("");
   const emailRef = useRef("");
@@ -54,8 +56,8 @@ const Navbar = () => {
 
   const handleLogout = () => {
     logout();
+    localStorage.removeItem('userdata');
     setSidebarOpen(false);
-    setLoggedout(true);
     scrollTo(0, 0);
     navigate('/');
   }
@@ -63,8 +65,7 @@ const Navbar = () => {
     setSidebarOpen(false);
   };
   useEffect(() => {
-    setLoggedout(!isAuthenticated());
-  }, [isLoggout]);
+  }, [isLoggedOut]);
 
 
   return (
@@ -87,8 +88,8 @@ const Navbar = () => {
             <li className="rounded-md transition-all ease-in-out duration-700 hover:text-blue-950">
               <Link to={"/aboutus"}>About Us</Link>
             </li>
-            {getUserdata() ? <>
-              <li className="h-[40px] rounded-md bg-purple-500 px-4 py-1 bg-gradient-to-r hover:from-slate-500 to-slate-50 cursor-pointer" onClick={() =>setVisible(true)}>
+            {!isLoggedOut ? <>
+              <li className="h-[40px] rounded-md bg-purple-500 px-4 py-1 bg-gradient-to-r hover:from-slate-500 to-slate-50 cursor-pointer">
                 <Link to={"/contact"}>Book Now</Link>
               </li>
             </> : <>
@@ -97,10 +98,10 @@ const Navbar = () => {
               </li>
             </>
             }
-            {!isLoggout && <li className="rounded-md cursor-pointer transition-all ease-in-out duration-700 hover:text-blue-950" onClick={() => navigate('/endoutput')}> Best Places</li>}
-            {!isLoggout && <li className="rounded-md cursor-pointer transition-all ease-in-out duration-700 hover:text-blue-950" onClick={handleLogout}>Logout </li>}
+            {!isLoggedOut && <li className="rounded-md cursor-pointer transition-all ease-in-out duration-700 hover:text-blue-950" onClick={() => navigate('/endoutput')}> Best Places</li>}
+            {!isLoggedOut && <li className="rounded-md cursor-pointer transition-all ease-in-out duration-700 hover:text-blue-950" onClick={handleLogout}>Logout </li>}
 
-            {!isLoggout && <li className="rounded-md flex flex-col items-center">
+            {!isLoggedOut && <li className="rounded-md flex flex-col items-center">
               <FaUserCircle size={28} className="rounded-full" />
               <span className=" w-auto z-20 text-center">
                 Hello! {getUserdata() ? getUserdata().user.name : "Guest"}
@@ -121,22 +122,25 @@ const Navbar = () => {
         >
           <div className="flex justify-between mb-8">
             <Link to={"/"} onClick={() => window.scrollTo(0, 0)} className="p-3 rounded-md">
-              <p className="font-bold text-3xl">TravelMate</p>
+              <p className="font-bold text-3xl" onClick={() => handleSidebarClose()} >TravelMate</p>
             </Link>
             <CircleX className="text-primary cursor-pointer" onClick={handleSidebarClose} size={30} />
           </div>
 
           <ul className="flex flex-col gap-6">
-            {!isLoggout && <li className="rounded-md flex flex-col items-center">
+            {!isLoggedOut && <li className="rounded-md flex flex-col items-center">
               <FaUserCircle size={45} className="rounded-full text-lg" />
               <span className=" w-auto z-20 text-center">
                 Hello! {getUserdata() ? getUserdata().user.name : "Guest"}
               </span>
             </li>}
-            {getUserdata() ? <>
-              <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white border-b border-white" onClick={() => { handleSidebarClose(); setVisible(true) }}>
-                Book now
-              </li>
+            {!isLoggedOut ? <>
+              <Link to={"/contact"}>
+                <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white border-b border-white" onClick={() => handleSidebarClose()}>
+                  Book Now
+                </li>
+              </Link>
+
             </> : <>
               <Link to={"/register"}>
                 <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white/95 border-b border-white" onClick={handleSidebarClose} >
@@ -151,19 +155,11 @@ const Navbar = () => {
                 About Us
               </li>
             </Link>
-            <li
-              className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white/95 border-b border-white"
-              onClick={() => {
-                setVisible(true);
-                handleSidebarClose();
-              }}
-            >
-              Contact
-            </li>
-            {!isLoggout && <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white/95 border-b border-white" onClick={() => { handleSidebarClose(); navigate('/endoutput') }}> Best Places</li>}
-            {!isLoggout && <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white/95 border-b border-white" onClick={handleLogout}>Logout </li>}
 
-            {isLoggout && <Link to="/adminlogin" onClick={handleSidebarClose}>
+            {!isLoggedOut && <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white/95 border-b border-white" onClick={() => { handleSidebarClose(); navigate('/endoutput') }}> Best Places</li>}
+            {!isLoggedOut && <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white/95 border-b border-white" onClick={handleLogout}>Logout </li>}
+
+            {isLoggedOut && <Link to="/adminlogin" onClick={handleSidebarClose}>
               <li className="rounded-md bg-slate-600 hover:bg-slate-500 p-4 text-white/90">
                 <div className="flex flex-col">
                   <User2 className="rounded-full" /> Admin Login

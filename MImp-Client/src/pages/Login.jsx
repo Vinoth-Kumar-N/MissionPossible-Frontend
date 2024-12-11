@@ -8,11 +8,13 @@ import 'react-toastify/dist/ReactToastify.css';
 import { LoginUser } from '../services/AuthServices';
 import { Spin } from 'antd';
 import { storeUserdata } from '../services/storageServices';
+import { useAuth } from '../Context/AuthContext';
 
 
 
 
 const Login = () => {
+  const {login} = useAuth();
   const navigate = useNavigate();
   const [Loading, setLoading] = useState(false);
 
@@ -38,6 +40,7 @@ const Login = () => {
       }
       if (res.status === 201) {
         console.log(res);
+        login();
         storeUserdata(res.data);
         toast.success('Login Successful');
         setLoading(false);
