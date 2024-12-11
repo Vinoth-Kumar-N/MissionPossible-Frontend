@@ -20,6 +20,7 @@ const Home = () => {
       if(Token != null)
       toast.error('Session Expired');
       logout();
+      localStorage.removeItem('userData');
     }
   }, [isLoggedOut])
 
