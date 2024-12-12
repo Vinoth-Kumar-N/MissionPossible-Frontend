@@ -63,6 +63,7 @@ const CreateTrip = () => {
 
   useEffect(() => {
     console.log(FormData);
+    scrollTo(0, 0);
   }, [FormData]);
 
   const onGenerateTrip = () => {

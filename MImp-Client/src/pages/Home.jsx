@@ -19,8 +19,8 @@ const Home = () => {
     } else {
       if(Token != null)
       toast.error('Session Expired');
-      logout();
       localStorage.removeItem('userData');
+      logout();
     }
   }, [isLoggedOut])
 
