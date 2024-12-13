@@ -7,7 +7,7 @@ const SecTravList = [
     id: 1,
     icon: "💺",
     title: "Just Me",
-    desc: "A olo traveles in exploration",
+    desc: "A Solo traveles in exploration",
     people: "1",
   },
   {
@@ -64,7 +64,7 @@ const CreateTrip = () => {
   useEffect(() => {
     console.log(FormData);
     scrollTo(0, 0);
-  }, [FormData]);
+  }, []);
 
   const onGenerateTrip = () => {
     if (
