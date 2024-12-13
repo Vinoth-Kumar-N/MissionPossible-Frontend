@@ -14,7 +14,7 @@ import { useAuth } from '../Context/AuthContext';
 
 
 const Login = () => {
-  const {login} = useAuth();
+  const { login } = useAuth();
   const navigate = useNavigate();
   const [Loading, setLoading] = useState(false);
 
@@ -31,6 +31,11 @@ const Login = () => {
       password: passwordref.current.value
     };
     try {
+      if (data.email === '' || data.password === '') {
+        toast.error('All fields are required');
+        setLoading(false);
+        return;
+      }
       const res = await LoginUser(data);
       if (res.data.message === 'User does not exist') {
         toast.error('User does not Exist');
@@ -49,6 +54,7 @@ const Login = () => {
         }, 2000);
       }
     } catch (error) {
+      setLoading(false);
       alert(error);
     }
   };

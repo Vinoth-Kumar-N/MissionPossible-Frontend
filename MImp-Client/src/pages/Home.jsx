@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import MainVideo from "../assets/vidoes/video1.mp4"; // Use correct path for the video file
 import { isTokenValid} from "../services/AuthServices";
-import { getUserdata } from "../services/storageServices";
+import { getUserdata, removeUserdata } from "../services/storageServices";
 import { useAuth } from "../Context/AuthContext";
 
 const Home = () => {
@@ -19,7 +19,7 @@ const Home = () => {
     } else {
       if(Token != null && !isTokenValid(Token)) {
         toast.error('Session Expired');
-        localStorage.removeItem('userData');
+        removeUserdata();
         logout();
       }
     }

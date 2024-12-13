@@ -56,7 +56,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     logout();
-    localStorage.removeItem('userdata');
+    sessionStorage.removeItem('userdata');
     setSidebarOpen(false);
     scrollTo(0, 0);
     navigate('/');
