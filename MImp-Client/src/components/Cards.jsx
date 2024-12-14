@@ -3,7 +3,7 @@ import Featurescard from "./Featurescard";
 import axios from "axios";
 
 const Cards = () => {
-  const url = import.meta.env.VITE_ADD_FEATURES;
+  const url = import.meta.env.VITE_GET_FEATURES;
   const [data, setData] = useState([]);
 
   const FetchData = async () => {

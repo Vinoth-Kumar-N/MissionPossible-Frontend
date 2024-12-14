@@ -5,7 +5,7 @@ import axios from 'axios';
 import { Loader } from 'lucide-react';
 
 const EndOut = () => {
-    const url = 'https://6703ae46ab8a8f89273132cf.mockapi.io/AddCity';
+    const url = 'https://missionpossible-backend-6x8r.onrender.com/api/v8/getCity';
     const location = useLocation();
     const { admin } = location.state || {};
 
