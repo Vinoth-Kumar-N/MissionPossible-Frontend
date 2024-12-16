@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Heart, Star, Trash2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { deleteCity } from "../services/CitiesCRUD";
 
 const Card = (props) => {
   const [isLiked, setIsLiked] = useState(false);
@@ -15,9 +15,8 @@ const Card = (props) => {
 
   const handleDelete = async (id, e) => {
     e.stopPropagation();
-    const url = `https://6703ae46ab8a8f89273132cf.mockapi.io/AddCity/${id}`;
     try {
-      const Del = await axios.delete(url);
+      const Del = await deleteCity(id);
       alert(`Deleted! Status: ${Del.status}`);
       // window.location.reload();
     } catch (e) {

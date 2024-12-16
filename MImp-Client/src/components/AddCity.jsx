@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { CircleX } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { addCity } from '../services/CitiesCRUD';
 
 const AddCity = () => {
     const coverimgRef = useRef(null);
@@ -13,9 +13,8 @@ const AddCity = () => {
     const latref = useRef(null);
     const lonref = useRef(null);
     
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault(); 
-        const url = import.meta.env.VITE_ADD_CITY;
         
         const obj = {
             coverimg: coverimgRef.current.value,
@@ -29,13 +28,13 @@ const AddCity = () => {
         };
 
         console.log(obj);
-        await SendData(url, obj);
+        SendData(obj);
     };
 
-    const SendData = async (url, obj) => {
+    const SendData = async (obj) => {
         try {
-            const res = await axios.post(url, obj);
-            if (res.status === 201) {
+            const res = await addCity(obj);
+            if (res.status === 201 || res.status === 200) {
                 alert("Data sent successfully");
                 // Optionally clear the form here
                 clearForm();

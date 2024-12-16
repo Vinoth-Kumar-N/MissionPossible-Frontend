@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { CircleX } from "lucide-react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { addFeature } from "../services/CitiesCRUD";
 
 export const AddFeature = () => {
   const imgref = useRef(null);
@@ -10,7 +11,6 @@ export const AddFeature = () => {
   const nameref = useRef(null);
 
   const handleclick = (e) => {
-    const url = import.meta.env.VITE_ADD_FEATURES;
     e.preventDefault();
     const obj = {
       imageurl: imgref.current.value,
@@ -26,8 +26,8 @@ export const AddFeature = () => {
     }
   };
   const sendData = async (obj) => {
-    const respon = await axios.post(url, obj);
-    alert(respon.status);
+    const respon = await addFeature(obj);
+    alert(respon);
     if (respon.status) {
       alert("Data sent succuessfully");
     } else {

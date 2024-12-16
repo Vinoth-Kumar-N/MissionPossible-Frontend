@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Featurescard from "./Featurescard";
-import axios from "axios";
+import { getFeatures } from "../services/CitiesCRUD";
 
 const Cards = () => {
-  const url = import.meta.env.VITE_GET_FEATURES;
   const [data, setData] = useState([]);
 
   const FetchData = async () => {
     try {
-      const res = await axios.get(url);
+      const res = await getFeatures();
       if (res.status === 200) {
-        setData(res.data);
+        setData(res.data.Data);
+        console.log(res.data.Data);
       } else {
         alert("Failed...");
       }

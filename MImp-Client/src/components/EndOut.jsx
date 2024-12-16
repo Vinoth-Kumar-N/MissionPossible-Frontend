@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Card from './Card';
-import axios from 'axios';
+import { getCities } from '../services/CitiesCRUD';
 import { Loader } from 'lucide-react';
 
 const EndOut = () => {
-    const url = 'https://missionpossible-backend-6x8r.onrender.com/api/v8/getCity';
     const location = useLocation();
     const { admin } = location.state || {};
 
@@ -22,10 +21,10 @@ const EndOut = () => {
 
     const FetchData = async () => {
         try {
-            const res = await axios.get(url);
-            if (res.status === 200) {
-                setData(res.data);
-                console.table(res.data);
+            const res = await getCities();
+            if (res.status === 200 || res.status === 201) {
+                setData(res.data.data);
+                console.log(res.data);
             } else {
                 alert("Error! Data not fetched");
             }
@@ -105,7 +104,8 @@ const EndOut = () => {
                             {filteredData.length > 0 ? (
                                 filteredData.map((item) => (
                                     <Card
-                                        key={item.id}
+                                        key={item._id}
+                                        id={item._id}
                                         className="w-full m-2 sm:w-1/2 md:w-1/3 lg:w-1/4 p-2"
                                         data={item}
                                         admin={admin}

@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { User2, CircleX, Menu } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import {getUserdata} from '../services/storageServices.js'
+import { getUserdata } from '../services/storageServices.js'
 import { isAuthenticated } from "../services/AuthServices";
 import { HiMenuAlt1, HiMenuAlt3 } from "react-icons/hi";
 import { FaUserCircle } from "react-icons/fa";
@@ -93,9 +93,11 @@ const Navbar = () => {
                 <Link to={"/contact"}>Book Now</Link>
               </li>
             </> : <>
-              <li className="rounded-md transition-all ease-in-out duration-700 hover:text-blue-950">
-                <Link to={"/register"}>For Booking</Link>
-              </li>
+
+              <Link to={"/register"}>
+                <li className="rounded-md transition-all ease-in-out duration-700 hover:text-blue-950">For Booking</li>
+              </Link>
+
             </>
             }
             {!isLoggedOut && <li className="rounded-md cursor-pointer transition-all ease-in-out duration-700 hover:text-blue-950" onClick={() => navigate('/endoutput')}> Best Places</li>}
