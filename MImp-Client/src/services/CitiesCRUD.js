@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "https://missionpossible-backend-6x8r.onrender.com";
+const API = "https://missionpossible-backend-1.onrender.com";
 // const API = "http://localhost:1111";
 
 const getCities = async () => {
