@@ -1,17 +1,28 @@
 import React, { useEffect, useState } from "react";
 import HotelCard from "./HotelCard";
+import { getHotels } from "../services/HotelAndPlacesCRUD";
 import axios from "axios";
 
-const Hotels = () => {
+const Hotels = (props) => {
   const [hotels, setHotels] = useState([]);
+  // console.log(props.id);
+  const FetchData = async () => {
+    try {
+      const res = await getHotels(props.id);
+      if (res.status === 200 || res.status === 201) {
+        // console.log(res.data);
+        setHotels(res.data.data);
+      } else {
+        alert("Error! Data not fetched");
+      }
+    } catch (error) {
+      alert("Error occurred: " + error.message);
+    }
+  };
 
   useEffect(() => {
-    axios
-      .get("https://67038440bd7c8c1ccd41bc90.mockapi.io/hotel")
-      .then((response) => setHotels(response.data))
-      .catch((error) => console.error("Error fetching hotels:", error));
+    FetchData();
   }, []);
-  console.log(hotels);
   return (
     <>
       <div className="w-full flex justify-center">
@@ -22,10 +33,10 @@ const Hotels = () => {
       <div className="w-full h-full flex justify-center flex-wrap gap-5">
         {hotels.map((hotel) => (
           <HotelCard
-            key={hotel.id}
-            img={hotel.hotelimg}
-            name={hotel.hotelname}
-            price={hotel.price}
+            key={hotel._id}
+            img={hotel.hotelImgUrl}
+            name={hotel.Name}
+            price={hotel.Price}
           />
         ))}
       </div>

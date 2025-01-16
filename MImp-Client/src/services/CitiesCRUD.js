@@ -35,7 +35,7 @@ const getFeatures = async () => {
 }
 
 const addFeature = async (data) => {
-    axios.post(`${API}/api/v9/addFeature`, data);
+    return axios.post(`${API}/api/v9/addFeature`, data);
 }
 
 export { getFeatures, addFeature };

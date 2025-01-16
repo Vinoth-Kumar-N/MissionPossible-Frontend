@@ -22,17 +22,17 @@ const City = (props) => {
       <div className="flex flex-col gap-10 p-2">
         <Weather name={data.cityname}/>
         <CityDetails data={data} />
-        <Map lat={Number(data.lat)} lng={Number(data.lon)} />
-        <Hotels />
+        {/* <Map lat={Number(data.lat)} lng={Number(data.lon)} /> */}
+        <Hotels id={data._id} />
         <h1 className="text-2xl flex justify-center items-center rounded-md shadow-md bg-lime-100 h-[50px]">
-          Places
+          Places to Visit
         </h1>
-        <PlacesCard />
+        <PlacesCard id={data._id} />
         <div className="justify-center items-center flex">
           <button className="box">Purchase</button>
         </div>
         <Air name={data.cityimg}/>
-        <Currency />
+        {/* <Currency /> */}
       </div>
     </>
   );

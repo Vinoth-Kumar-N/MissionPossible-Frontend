@@ -15,7 +15,7 @@ const addhotels = () => {
   const handleclick = (e) => {
     e.preventDefault();
     const obj = {
-      ratings: ratingsRef.current.value,
+      rating: ratingsRef.current.value,
       price: priceRef.current.value,
       hotelimg: hotelimageRef.current.value,
       description: descriptionRef.current.value,

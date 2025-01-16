@@ -10,7 +10,7 @@ export const AddFeature = () => {
   const descriptionref = useRef(null);
   const nameref = useRef(null);
 
-  const handleclick = (e) => {
+  const handleclick = async (e) => {
     e.preventDefault();
     const obj = {
       imageurl: imgref.current.value,
@@ -19,18 +19,12 @@ export const AddFeature = () => {
       name: nameref.current.value,
     };
     if (obj) {
-      console.log(obj);
-      sendData(obj);
+      const respon = await addFeature(obj);
+      if(respon.status == 200){
+        alert("Data sent successfully");
+      }
     } else {
-      console.log("no data");
-    }
-  };
-  const sendData = async (obj) => {
-    const respon = await addFeature(obj);
-    alert(respon);
-    if (respon.status) {
-      alert("Data sent succuessfully");
-    } else {
+      console.log("no data Added");
       alert("Sorry!, we are unable to sent data right now..kindly try again");
     }
   };

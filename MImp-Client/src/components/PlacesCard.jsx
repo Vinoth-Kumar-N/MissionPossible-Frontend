@@ -1,21 +1,27 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { getPlaces } from "../services/HotelAndPlacesCRUD";
 
-const PlacesCard = () => {
+const PlacesCard = (props) => {
   const [placeslist, setplaceslist] = useState([]);
+  console.log(props.id);
+  const FetchData = async () => {
+    try {
+      const res = await getPlaces(props.id);
+      if (res.status === 200 || res.status === 201) {
+        console.log(res.data);
+        setplaceslist(res.data.data);
+      } else {
+        alert("Error! Data not fetched");
+      }
+    } catch (error) {
+      alert("Error occurred: " + error.message);
+    }
+  };
 
   useEffect(() => {
-    const url = import.meta.env.VITE_PLACES;
-    axios
-      .get(url)
-      .then((response) => {
-        setplaceslist(response.data);
-      })
-      .catch((error) => {
-        console.error("There was an error fetching the project data!", error);
-      });
+    FetchData();
   }, []);
-
   return (
     <div className="w-screen">
       <ul className="flex flex-wrap justify-center">
@@ -24,12 +30,11 @@ const PlacesCard = () => {
             <div className="shadow-md h-auto w-[300px] flex flex-col rounded-2xl bg-slate-100">
               <img
                 className="w-auto h-[50%] rounded-lg m-2"
-                src={item.pimg}
+                src={item.placeImgUrl}
                 alt="project"
               />
               <div className="p-4 flex flex-col items-center justify-center">
-                <h1 className="text-2xl font-bold">{item.pname}</h1>
-                <p className="text-sm">{item.desc}</p>
+                <h1 className="text-2xl font-bold">{item.placeName}</h1>
               </div>
             </div>
           </li>

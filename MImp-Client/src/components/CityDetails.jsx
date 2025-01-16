@@ -1,7 +1,7 @@
 import React from "react";
 
 const CityDetails = (props) => {
-  console.table(props);
+  // console.table(props);
   return (
     <div className="flex flex-col items-center w-full px-4 py-6 sm:px-8">
       <div className="w-full max-w-5xl flex flex-col lg:flex-row bg-white rounded-lg shadow-lg overflow-hidden">

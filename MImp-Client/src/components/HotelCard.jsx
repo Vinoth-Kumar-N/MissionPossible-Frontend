@@ -14,7 +14,7 @@ const HotelCard = ({ name, img, price }) => {
         {name}
       </div>
       <div className="h-[20%] w-full rounded-md flex items-center justify-center bg-slate-50">
-        {price}
+       ₹{price}
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ const InfoPage = (props) => {
             const apiKey = 'be26bcd4947741dd9b980956241409';
             const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=yes`;
             const weatherData = await axios.get(url);
-            console.table(weatherData.data);
+            // console.table(weatherData.data);
             setData(weatherData.data);
         } catch (error) {
             console.error('Error fetching weather data:', error);

@@ -10,49 +10,49 @@ import { useAuth } from '../Context/AuthContext'
 
 const Navbar = () => {
   const { isLoggedOut, logout } = useAuth();
-  const url = import.meta.env.VITE_CONTACT_API;
+  // const url = import.meta.env.VITE_CONTACT_API;
   const navigate = useNavigate();
   // const [isLoggout, setLoggedout] = useState(!isAuthenticated());
 
-  const nameRef = useRef("");
-  const emailRef = useRef("");
-  const phoneRef = useRef("");
-  const placeRef = useRef("");
-  const dateref = useRef("");
-  const peopleRef = useRef("");
-  const vacationRef = useRef("");
+  // const nameRef = useRef("");
+  // const emailRef = useRef("");
+  // const phoneRef = useRef("");
+  // const placeRef = useRef("");
+  // const dateref = useRef("");
+  // const peopleRef = useRef("");
+  // const vacationRef = useRef("");
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const formData = {
-      name: nameRef.current.value,
-      email: emailRef.current.value,
-      phone: phoneRef.current.value,
-      place: placeRef.current.value,
-      date: dateref.current.value,
-      people: peopleRef.current.value,
-      vacation: vacationRef.current.value,
-    };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const formData = {
+  //     name: nameRef.current.value,
+  //     email: emailRef.current.value,
+  //     phone: phoneRef.current.value,
+  //     place: placeRef.current.value,
+  //     date: dateref.current.value,
+  //     people: peopleRef.current.value,
+  //     vacation: vacationRef.current.value,
+  //   };
 
-    try {
-      const response = await axios.post(url, formData);
-      if (response.status === 201) {
-        alert("Message sent successfully!");
-        // Clear the form fields
-        nameRef.current.value = "";
-        emailRef.current.value = "";
-        phoneRef.current.value = "";
-        placeRef.current.value = "";
-        dateref.current.value = "";
-        peopleRef.current.value = "";
-        vacationRef.current.value = "";
-      }
-    } catch (error) {
-      alert("An error occurred while sending the message. Please try again.");
-    }
-  };
+  //   try {
+  //     const response = await axios.post(url, formData);
+  //     if (response.status === 201) {
+  //       alert("Message sent successfully!");
+  //       // Clear the form fields
+  //       nameRef.current.value = "";
+  //       emailRef.current.value = "";
+  //       phoneRef.current.value = "";
+  //       placeRef.current.value = "";
+  //       dateref.current.value = "";
+  //       peopleRef.current.value = "";
+  //       vacationRef.current.value = "";
+  //     }
+  //   } catch (error) {
+  //     alert("An error occurred while sending the message. Please try again.");
+  //   }
+  // };
 
   const handleLogout = () => {
     logout();
